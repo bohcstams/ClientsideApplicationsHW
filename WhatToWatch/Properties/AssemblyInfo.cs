@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("WhatToWatch")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("http://aka.ms/template10")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("WhatToWatch")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("WhatToWatch")]
 [assembly: AssemblyCulture("")]
 
 // Version information for an assembly consists of the following four values:

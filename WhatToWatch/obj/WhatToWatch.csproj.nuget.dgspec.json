@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\Házi\\WhatToWatch\\WhatToWatch.csproj": {}
+    "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\Házi\\ClientsideApplicationsHW\\WhatToWatch\\WhatToWatch.csproj": {}
   },
   "projects": {
-    "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\Házi\\WhatToWatch\\WhatToWatch.csproj": {
+    "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\Házi\\ClientsideApplicationsHW\\WhatToWatch\\WhatToWatch.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\Házi\\WhatToWatch\\WhatToWatch.csproj",
+        "projectUniqueName": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\Házi\\ClientsideApplicationsHW\\WhatToWatch\\WhatToWatch.csproj",
         "projectName": "WhatToWatch",
-        "projectPath": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\Házi\\WhatToWatch\\WhatToWatch.csproj",
+        "projectPath": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\Házi\\ClientsideApplicationsHW\\WhatToWatch\\WhatToWatch.csproj",
         "packagesPath": "C:\\Users\\egyip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\Házi\\WhatToWatch\\obj\\",
+        "outputPath": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\Házi\\ClientsideApplicationsHW\\WhatToWatch\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -47,6 +47,10 @@
             "Microsoft.NETCore.UniversalWindowsPlatform": {
               "target": "Package",
               "version": "[6.2.14, )"
+            },
+            "Template10": {
+              "target": "Package",
+              "version": "[1.1.12, )"
             }
           },
           "imports": [
