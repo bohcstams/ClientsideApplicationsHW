@@ -22,6 +22,16 @@
     </Page.Resources>-->
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ListView ItemsSource="{Binding movies}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="250" Height="375">
+                        <Image Source="{Binding poster}" Stretch="Uniform" VerticalAlignment="Center" />
+                        <Border VerticalAlignment="Bottom" Background="#AA000000">
+                            <TextBlock Text="{Binding title}" Margin="12" Foreground="White"/>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
     </Grid>

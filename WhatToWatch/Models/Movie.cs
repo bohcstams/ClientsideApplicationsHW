@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace WhatToWatch.Models
 {
@@ -35,6 +36,8 @@ namespace WhatToWatch.Models
         public bool video { get; set; }
         public float vote_average { get; set; }
         public int vote_count { get; set; }
+
+        public BitmapImage poster {  get; set; }
     }
 
     public class Genre

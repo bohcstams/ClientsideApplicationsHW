@@ -16,16 +16,22 @@ namespace WhatToWatch.ViewModels
         public ObservableCollection<Movie> movies { get; set; } =
             new ObservableCollection<Movie>();
 
+        private ApiService apiService = new ApiService();
+
         public override async Task OnNavigatedToAsync(
             object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
-            var service = new ApiService();
 
             try
             {
-                var popularMovies = await service.GetPopularMovieListAsync();
+                var popularMovies = await apiService.GetPopularMovieListAsync();
                 foreach (var movie in popularMovies.results)
                 {
+                    var image = await apiService.GetMoviePosterAsync(movie.poster_path);
+                    if (image != null)
+                    {
+                        movie.poster = image;
+                    }
                     movies.Add(movie);
                 }
             }catch (Exception ex)
