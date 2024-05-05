@@ -33,7 +33,7 @@ namespace WhatToWatch.Services
             request.AddHeader("accept", "application/json");
             request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNzJlYzkzNTJkNjA4MzM5YTU1NDNhY2M3ODM0YjRiYSIsInN1YiI6IjY2MzI1ZGY2YWY0MzI0MDEyYjUzYjE4NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.tmk90JPOZ7RcseOtUQPFOeIqUr7acixGXhmF_pQQtvs");
             var response = await client.GetAsync(request);
-            MovieList result = JsonConvert.DeserializeObject<MovieList>(JsonConvert.SerializeObject(response));
+            MovieList result = JsonConvert.DeserializeObject<MovieList>(response.Content);
             return result;
             //return await GetAsync<MovieList>(new Uri(serverUrl, "movie/popular"));
         }
