@@ -120,6 +120,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\MovieGroup.cs" />
     <Compile Include="Models\MovieList.cs" />
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />

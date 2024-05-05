@@ -16,6 +16,9 @@ namespace WhatToWatch.ViewModels
         public ObservableCollection<Movie> movies { get; set; } =
             new ObservableCollection<Movie>();
 
+        public ObservableCollection<MovieGroup> MovieGroups { get; set; } =
+            new ObservableCollection<MovieGroup>();
+
         private ApiService apiService = new ApiService();
 
         public override async Task OnNavigatedToAsync(
@@ -24,16 +27,8 @@ namespace WhatToWatch.ViewModels
 
             try
             {
-                var popularMovies = await apiService.GetPopularMovieListAsync();
-                foreach (var movie in popularMovies.results)
-                {
-                    var image = await apiService.GetMoviePosterAsync(movie.poster_path);
-                    if (image != null)
-                    {
-                        movie.poster = image;
-                    }
-                    movies.Add(movie);
-                }
+                await GetPopularMoviesAsync();
+                await GetNowPlayingMoviesAsync();
             }catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -41,6 +36,42 @@ namespace WhatToWatch.ViewModels
             
             
             await base.OnNavigatedToAsync(parameter, mode, state);
+        }
+
+        private async Task GetPopularMoviesAsync()
+        {
+            var popularMovies = await apiService.GetPopularMovieListAsync();
+            await GetPostersForMovieListAsync(popularMovies);
+            AddMovieListToGroups("Népszerű filmek", popularMovies);
+        }
+
+        private async Task GetNowPlayingMoviesAsync()
+        {
+            var nowPlayingMovies = await apiService.GetNowPlayingMoviesAsync();
+            await GetPostersForMovieListAsync(nowPlayingMovies);
+            AddMovieListToGroups("Jelenleg a mozikban", nowPlayingMovies);
+
+        }
+
+        private async Task GetPostersForMovieListAsync(MovieList movieList)
+        {
+            foreach(var movie in movieList.results)
+            {
+                var image = await apiService.GetMoviePosterAsync(movie.poster_path);
+                if (image != null)
+                {
+                    movie.poster = image;
+                }
+            }
+        }
+
+        private void AddMovieListToGroups(string title, MovieList movies)
+        {
+            MovieGroups.Add(new MovieGroup
+            {
+                Title = title,
+                Movies = movies.results
+            });
         }
     }
 }

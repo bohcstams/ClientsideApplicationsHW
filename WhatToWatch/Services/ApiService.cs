@@ -82,8 +82,25 @@ namespace WhatToWatch.Services
             {
                 return new MovieList();
             }
-            
-            //return await GetAsync<MovieList>(new Uri(serverUrl, "movie/popular"));
+        }
+
+        public async Task<MovieList> GetNowPlayingMoviesAsync()
+        {
+            var options = new RestClientOptions("https://api.themoviedb.org/3/movie/now_playing?language=hu&page=1");
+            var client = new RestClient(options);
+            var request = new RestRequest("");
+            request.AddHeader("accept", "application/json");
+            request.AddHeader("Authorization", $"Bearer {apiKey}");
+            var response = await client.GetAsync(request);
+            if (response.IsSuccessStatusCode)
+            {
+                MovieList result = JsonConvert.DeserializeObject<MovieList>(response.Content);
+                return result;
+            }
+            else
+            {
+                return new MovieList();
+            }
         }
     }
 }

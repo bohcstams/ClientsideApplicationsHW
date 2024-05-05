@@ -14,54 +14,58 @@
         <vm:MainPageViewModel x:Name="ViewModel" />
     </Page.DataContext>
 
-    <!--<Page.Resources>
+    <Page.Resources>
         <CollectionViewSource x:Key="MoviesViewSource"
-                          IsSourceGrouped="False"
-                          Source="{Binding movies}"
+                          IsSourceGrouped="True"
+                          Source="{Binding MovieGroups}"
                           ItemsPath="Movies"/>
-    </Page.Resources>-->
+    </Page.Resources>
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView ItemsSource="{Binding movies}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Width="250" Height="375">
-                        <Image Source="{Binding poster}" Stretch="Uniform" VerticalAlignment="Center" />
-                        <Border VerticalAlignment="Bottom" Background="#AA000000">
-                            <TextBlock Text="{Binding title}" Margin="12" Foreground="White"/>
-                        </Border>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-    </Grid>
-
-    <!--<TextBlock Text="Hello World!"/>-->
-
-    
-    
-    <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <controls:PageHeader Content="WhatToWatch" Grid.Row="0"/>
-        
+        <controls:PageHeader Content="WhatToWatch" Grid.Row="0" />
+
         <GridView Grid.Row="1"
-           Padding="18"
-           IsItemClickEnabled="False"
-           ItemsSource="{Binding Source={StaticResource MoviesViewSource}}">
+              Padding="18"
+              ItemsSource="{Binding Source={StaticResource MoviesViewSource}}">
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Width="250" Height="250">
-                        <TextBlock Text="{Binding poster_path}" VerticalAlignment="Center" />
+                    <Grid Width="250" Height="375">
+                        <!-- TODO Binding -->
+                        <Image Source="{Binding poster}"
+                        Stretch="UniformToFill" VerticalAlignment="Center" />
                         <Border VerticalAlignment="Bottom" Background="#AA000000">
                             <TextBlock Text="{Binding title}" Margin="12" Foreground="White"/>
                         </Border>
                     </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>
+            <GridView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <!-- TODO Binding -->
+                            <TextBlock Text="{Binding Title}" Margin="-12,0,0,0"/>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </GridView.GroupStyle>
         </GridView>
-    </Grid>-->
+    </Grid>
+    <!--<ListView ItemsSource="{Binding groups}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <Grid Width="250" Height="375">
+                    <Image Source="{Binding poster}" Stretch="Uniform" VerticalAlignment="Center" />
+                    <Border VerticalAlignment="Bottom" Background="#AA000000">
+                        <TextBlock Text="{Binding title}" Margin="12" Foreground="White"/>
+                    </Border>
+                </Grid>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>-->
 </Page>
