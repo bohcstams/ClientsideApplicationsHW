@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,7 @@ namespace WhatToWatch.Models
         public float popularity { get; set; }
         public string poster_path { get; set; }
         public List<Production_Companies> production_companies { get; set; }
-        public List<Production_Companies> production_countries { get; set; }
+        public List<Production_Countries> production_countries { get; set; }
         public string release_date { get; set; }
         public int revenue { get; set; }
         public int runtime { get; set; }
@@ -36,8 +37,29 @@ namespace WhatToWatch.Models
         public bool video { get; set; }
         public float vote_average { get; set; }
         public int vote_count { get; set; }
+        public BitmapImage poster { get; set; }
 
-        public BitmapImage poster {  get; set; }
+        public double VotePercent
+        {
+            get { return vote_average * 10; }
+        }
+
+        public string ReleaseYear
+        {
+            get
+            {
+                DateTime releaseDate = DateTime.Parse(release_date);
+                return releaseDate.ToString("yyyy");
+            }
+        }
+
+        public string Runtime
+        {
+            get
+            {
+                return $"{runtime / 60}h {runtime % 60}";
+            }
+        }
     }
 
     public class Genre

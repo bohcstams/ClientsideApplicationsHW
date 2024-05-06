@@ -17,5 +17,6 @@
     <Import Project="C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.netcore.universalwindowsplatform\6.2.14\build\Microsoft.NetCore.UniversalWindowsPlatform.targets" Condition="Exists('C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.netcore.universalwindowsplatform\6.2.14\build\Microsoft.NetCore.UniversalWindowsPlatform.targets')" />
     <Import Project="$(NuGetPackageRoot)template10\1.1.12\build\uap10.0\Template10.targets" Condition="Exists('$(NuGetPackageRoot)template10\1.1.12\build\uap10.0\Template10.targets')" />
     <Import Project="$(NuGetPackageRoot)system.text.json\7.0.2\buildTransitive\netstandard2.0\System.Text.Json.targets" Condition="Exists('$(NuGetPackageRoot)system.text.json\7.0.2\buildTransitive\netstandard2.0\System.Text.Json.targets')" />
+    <Import Project="$(NuGetPackageRoot)communitytoolkit.mvvm\8.2.2\buildTransitive\netstandard2.0\CommunityToolkit.Mvvm.targets" Condition="Exists('$(NuGetPackageRoot)communitytoolkit.mvvm\8.2.2\buildTransitive\netstandard2.0\CommunityToolkit.Mvvm.targets')" />
   </ImportGroup>
 </Project>

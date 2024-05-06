@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 using Template10.Mvvm;
 using WhatToWatch.Models;
 using WhatToWatch.Services;
+using WhatToWatch.Views;
 using Windows.UI.Xaml.Navigation;
 
 namespace WhatToWatch.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
-        public ObservableCollection<Movie> movies { get; set; } =
-            new ObservableCollection<Movie>();
 
         public ObservableCollection<MovieGroup> MovieGroups { get; set; } =
             new ObservableCollection<MovieGroup>();
@@ -72,6 +71,11 @@ namespace WhatToWatch.ViewModels
                 Title = title,
                 Movies = movies.results
             });
+        }
+
+        public void NavigateToDetails(int movieId)
+        {
+            NavigationService.Navigate(typeof(DetailsPage), movieId);
         }
     }
 }

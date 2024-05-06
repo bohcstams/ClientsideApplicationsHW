@@ -31,11 +31,12 @@
 
         <GridView Grid.Row="1"
               Padding="18"
-              ItemsSource="{Binding Source={StaticResource MoviesViewSource}}">
+              ItemsSource="{Binding Source={StaticResource MoviesViewSource}}"
+              IsItemClickEnabled="True"
+              ItemClick="Movie_Clicked_Navigate_To_Details">
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <Grid Width="250" Height="375">
-                        <!-- TODO Binding -->
                         <Image Source="{Binding poster}"
                         Stretch="UniformToFill" VerticalAlignment="Center" />
                         <Border VerticalAlignment="Bottom" Background="#AA000000">
@@ -48,7 +49,6 @@
                 <GroupStyle>
                     <GroupStyle.HeaderTemplate>
                         <DataTemplate>
-                            <!-- TODO Binding -->
                             <TextBlock Text="{Binding Title}" Margin="-12,0,0,0"/>
                         </DataTemplate>
                     </GroupStyle.HeaderTemplate>
@@ -56,16 +56,4 @@
             </GridView.GroupStyle>
         </GridView>
     </Grid>
-    <!--<ListView ItemsSource="{Binding groups}">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <Grid Width="250" Height="375">
-                    <Image Source="{Binding poster}" Stretch="Uniform" VerticalAlignment="Center" />
-                    <Border VerticalAlignment="Bottom" Background="#AA000000">
-                        <TextBlock Text="{Binding title}" Margin="12" Foreground="White"/>
-                    </Border>
-                </Grid>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>-->
 </Page>

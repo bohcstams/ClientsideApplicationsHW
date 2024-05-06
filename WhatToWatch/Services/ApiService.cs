@@ -22,8 +22,8 @@ namespace WhatToWatch.Services
 
         private async Task<T> GetAsync<T>(Uri uri)
         {
-            using(var client = new HttpClient())
-            {   
+            using (var client = new HttpClient())
+            {
                 var response = await client.GetAsync(uri);
                 var json = await response.Content.ReadAsStringAsync();
                 T result = JsonConvert.DeserializeObject<T>(json);
@@ -33,7 +33,7 @@ namespace WhatToWatch.Services
 
         private async Task<HttpResponseMessage> GetResponseAsync(Uri uri)
         {
-            using(var client = new HttpClient())
+            using (var client = new HttpClient())
             {
                 var response = await client.GetAsync(uri);
                 return response;
@@ -100,6 +100,82 @@ namespace WhatToWatch.Services
             else
             {
                 return new MovieList();
+            }
+        }
+
+        public async Task<Movie> GetMovieDetailsAsync(int id)
+        {
+            var options = new RestClientOptions($"https://api.themoviedb.org/3/movie/{id}?language=hu");
+            var client = new RestClient(options);
+            var request = new RestRequest("");
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Authorization", $"Bearer {apiKey}");
+            var response = await client.GetAsync(request);
+            if (response.IsSuccessStatusCode)
+            {
+                Movie result = JsonConvert.DeserializeObject<Movie>(response.Content);
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<MovieCast> GetMovieCastAsync(int id)
+        {
+            var options = new RestClientOptions($"https://api.themoviedb.org/3/movie/{id}/credits?language=hu");
+            var client = new RestClient(options);
+            var request = new RestRequest("");
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Authorization", $"Bearer {apiKey}");
+            var response = await client.GetAsync(request);
+            if (response.IsSuccessStatusCode)
+            {
+                MovieCast result = JsonConvert.DeserializeObject<MovieCast>(response.Content);
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<Actor> GetActorDetailsAsync(int id)
+        {
+            var options = new RestClientOptions($"https://api.themoviedb.org/3/person/{id}?language=hu");
+            var client = new RestClient(options);
+            var request = new RestRequest("");
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Authorization", $"Bearer {apiKey}");
+            var response = await client.GetAsync(request);
+            if (response.IsSuccessStatusCode)
+            {
+                Actor result = JsonConvert.DeserializeObject<Actor>(response.Content);
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<ActorCast> GetActorCastAsync(int id)
+        {
+            var options = new RestClientOptions($"https://api.themoviedb.org/3/person/{id}/movie_credits?language=hu");
+            var client = new RestClient(options);
+            var request = new RestRequest("");
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Authorization", $"Bearer {apiKey}");
+            var response = await client.GetAsync(request);
+            if (response.IsSuccessStatusCode)
+            {
+                ActorCast result = JsonConvert.DeserializeObject<ActorCast>(response.Content);
+                return result;
+            }
+            else
+            {
+                return null;
             }
         }
     }
