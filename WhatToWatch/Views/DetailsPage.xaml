@@ -29,30 +29,6 @@
         <vm:DetailsPageViewModel x:Name="ViewModel"/>
     </Page.DataContext>
 
-    <!--<Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-
-        <controls:PageHeader Content="{Binding Movie.title}" Grid.Row="0" Grid.ColumnSpan="2"/>
-
-        <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" Orientation="Vertical">
-            <Image x:Name="PosterImage" 
-                   Stretch="Uniform" 
-                   MaxWidth="400" 
-                   HorizontalAlignment="Left" 
-                   VerticalAlignment="Top" 
-                   Source="{Binding Poster}" />
-            <TextBlock Text="{Binding Movie.title}"/>
-        </StackPanel>
-        <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Movie.title}" />
-    </Grid>-->
-
     <Grid Background="DarkGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
@@ -179,10 +155,10 @@
                             <TextBlock Text="{Binding Movie.Runtime}"/>
 
                             <TextBlock Text="Költség" Style="{StaticResource FactLabel}"/>
-                            <TextBlock Text="{Binding Movie.budget}"/>
+                            <TextBlock Text="{Binding Movie.Budget}"/>
 
                             <TextBlock Text="Bevétel" Style="{StaticResource FactLabel}"/>
-                            <TextBlock Text="{Binding Movie.revenue}"/>
+                            <TextBlock Text="{Binding Movie.Revenue}"/>
                         </StackPanel>
                     </Border>
                 </StackPanel>

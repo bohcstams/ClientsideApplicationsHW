@@ -103,6 +103,44 @@ namespace WhatToWatch.Services
             }
         }
 
+        public async Task<MovieList> GetTopRatedMoviesAsync()
+        {
+            var options = new RestClientOptions("https://api.themoviedb.org/3/movie/top_rated?language=hu&page=1");
+            var client = new RestClient(options);
+            var request = new RestRequest("");
+            request.AddHeader("accept", "application/json");
+            request.AddHeader("Authorization", $"Bearer {apiKey}");
+            var response = await client.GetAsync(request);
+            if (response.IsSuccessStatusCode)
+            {
+                MovieList result = JsonConvert.DeserializeObject<MovieList>(response.Content);
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<MovieList> GetUpcomingMoviesAsync()
+        {
+            var options = new RestClientOptions("https://api.themoviedb.org/3/movie/upcoming?language=hu&page=1");
+            var client = new RestClient(options);
+            var request = new RestRequest("");
+            request.AddHeader("accept", "application/json");
+            request.AddHeader("Authorization", $"Bearer {apiKey}");
+            var response = await client.GetAsync(request);
+            if (response.IsSuccessStatusCode)
+            {
+                MovieList result = JsonConvert.DeserializeObject<MovieList>(response.Content);
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public async Task<Movie> GetMovieDetailsAsync(int id)
         {
             var options = new RestClientOptions($"https://api.themoviedb.org/3/movie/{id}?language=hu");
@@ -171,6 +209,25 @@ namespace WhatToWatch.Services
             if (response.IsSuccessStatusCode)
             {
                 ActorCast result = JsonConvert.DeserializeObject<ActorCast>(response.Content);
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<MovieList> GetMovieSearchResultAsync(string queryString)
+        {
+            var options = new RestClientOptions($"https://api.themoviedb.org/3/search/movie?query={queryString}&include_adult=false&language=hu&page=1");
+            var client = new RestClient(options);
+            var request = new RestRequest("");
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Authorization", $"Bearer {apiKey}");
+            var response = await client.GetAsync(request);
+            if (response.IsSuccessStatusCode)
+            {
+                MovieList result = JsonConvert.DeserializeObject<MovieList>(response.Content);
                 return result;
             }
             else

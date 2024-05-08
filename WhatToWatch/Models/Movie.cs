@@ -57,7 +57,37 @@ namespace WhatToWatch.Models
         {
             get
             {
-                return $"{runtime / 60}h {runtime % 60}";
+                return $"{runtime / 60} óra {runtime % 60} perc";
+            }
+        }
+
+        public string Budget
+        {
+            get
+            {
+                if(budget == 0)
+                {
+                    return "-";
+                }
+                else
+                {
+                    return $"{budget} $";
+                }
+            }
+        }
+
+        public string Revenue
+        {
+            get
+            {
+                if(revenue == 0)
+                {
+                    return "-";
+                }
+                else
+                {
+                    return $"{revenue} $";
+                }
             }
         }
     }

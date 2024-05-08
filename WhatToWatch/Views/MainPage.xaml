@@ -19,18 +19,37 @@
                           IsSourceGrouped="True"
                           Source="{Binding MovieGroups}"
                           ItemsPath="Movies"/>
+        <Style x:Key="MovieGroupTitleStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="36" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="#333333" />
+            <Setter Property="Margin" Value="0,10,0,5" />
+        </Style>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="LightGray">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <controls:PageHeader Content="WhatToWatch" Grid.Row="0" />
+        <controls:PageHeader Content="WhatToWatch" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0 10 0 0 ">
+            <TextBlock Text="Filmek keresése:" Foreground="Black" FontSize="16" VerticalAlignment="Center" Margin=" 15 0 10 0"/>
+            <TextBox x:Name="SearchBar" PlaceholderText="Adja meg egy film címét " Width="250" VerticalAlignment="Center" KeyUp="Movie_Search"/>
+            <Button Click="Back_To_Main_Page">
+                <TextBlock Text="Vissza" Foreground="Black"/>
+            </Button>
+        </StackPanel>
+        
+        
 
-        <GridView Grid.Row="1"
-              Padding="18"
+        <GridView x:Name="MoviesGrid" Grid.Row="2" Grid.Column="1"
               ItemsSource="{Binding Source={StaticResource MoviesViewSource}}"
               IsItemClickEnabled="True"
               ItemClick="Movie_Clicked_Navigate_To_Details">
@@ -49,7 +68,7 @@
                 <GroupStyle>
                     <GroupStyle.HeaderTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Title}" Margin="-12,0,0,0"/>
+                            <TextBlock Text="{Binding Title}" Style="{StaticResource MovieGroupTitleStyle}"/>
                         </DataTemplate>
                     </GroupStyle.HeaderTemplate>
                 </GroupStyle>

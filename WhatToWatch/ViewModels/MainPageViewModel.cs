@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Template10.Mvvm;
 using WhatToWatch.Models;
@@ -18,6 +19,11 @@ namespace WhatToWatch.ViewModels
         public ObservableCollection<MovieGroup> MovieGroups { get; set; } =
             new ObservableCollection<MovieGroup>();
 
+        public ObservableCollection<MovieGroup> MovieGroupsCache { get; set; } =
+            new ObservableCollection<MovieGroup>();
+
+
+
         private ApiService apiService = new ApiService();
 
         public override async Task OnNavigatedToAsync(
@@ -28,6 +34,8 @@ namespace WhatToWatch.ViewModels
             {
                 await GetPopularMoviesAsync();
                 await GetNowPlayingMoviesAsync();
+                await GetTopRatedMoviesAsync();
+                await GetUpcomingMoviesAsync();
             }catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -52,6 +60,20 @@ namespace WhatToWatch.ViewModels
 
         }
 
+        private async Task GetTopRatedMoviesAsync()
+        {
+            var topRatedMovies = await apiService.GetTopRatedMoviesAsync();
+            await GetPostersForMovieListAsync(topRatedMovies);
+            AddMovieListToGroups("Legjobbra értékelt filmek", topRatedMovies);
+        }
+
+        private async Task GetUpcomingMoviesAsync()
+        {
+            var upcomingMovies = await apiService.GetUpcomingMoviesAsync();
+            await GetPostersForMovieListAsync(upcomingMovies);
+            AddMovieListToGroups("Újdonságok", upcomingMovies);
+        }
+
         private async Task GetPostersForMovieListAsync(MovieList movieList)
         {
             foreach(var movie in movieList.results)
@@ -72,6 +94,32 @@ namespace WhatToWatch.ViewModels
                 Movies = movies.results
             });
         }
+
+        public async void MovieSearch(string searchString)
+        {
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var searchResult = await apiService.GetMovieSearchResultAsync(searchString);
+                await GetPostersForMovieListAsync(searchResult);
+                foreach(var group in MovieGroups)
+                {
+                    MovieGroupsCache.Add(group);
+                }
+                MovieGroups.Clear();
+                AddMovieListToGroups("Eredmények", searchResult);
+            }
+        }
+
+        public void BackToMainPage()
+        {
+            MovieGroups.Clear();
+            foreach (var group in MovieGroupsCache)
+            {
+                MovieGroups.Add(group);
+            }
+            MovieGroupsCache.Clear();
+        }
+
 
         public void NavigateToDetails(int movieId)
         {
