@@ -22,6 +22,7 @@ namespace WhatToWatch.ViewModels
         private Movie _movie;
         private MovieCast _moviecast;
         private BitmapImage _poster;
+        private MovieList _relatedMovies;
 
         public Movie Movie
         {
@@ -42,6 +43,12 @@ namespace WhatToWatch.ViewModels
             { Set(ref _moviecast, value); }
         }
 
+        public MovieList RelatedMovies
+        {
+            get { return _relatedMovies; }
+            set { Set(ref _relatedMovies, value); }
+        }
+
         private ApiService apiService = new ApiService();
 
         public override async Task OnNavigatedToAsync(
@@ -54,6 +61,8 @@ namespace WhatToWatch.ViewModels
                 Movie.poster = await apiService.GetMoviePosterAsync(Movie.poster_path);
                 Poster = Movie.poster;
                 MovieCast = await apiService.GetMovieCastAsync(movieId);
+                RelatedMovies = await apiService.GetRelatedMoviesAsync(movieId);
+
             }catch(Exception ex)
             {
                 Debug.WriteLine(ex.Message);
@@ -70,6 +79,11 @@ namespace WhatToWatch.ViewModels
         public void NavigateToDetails(int actorId)
         {
             NavigationService.Navigate(typeof(ActorDetailsPage), actorId);
+        }
+
+        public void NavigateToMovieDetails(int movieId)
+        {
+            NavigationService.Navigate(typeof(DetailsPage), movieId);
         }
     }
 }

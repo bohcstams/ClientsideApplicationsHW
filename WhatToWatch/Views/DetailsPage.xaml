@@ -23,6 +23,9 @@
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Margin" Value="0 0 0 0"/>
         </Style>
+        <CollectionViewSource x:Key="MoviesViewSource"
+                  Source="{Binding RelatedMovies.results}"
+                  ItemsPath="Movies"/>
     </Page.Resources>
 
     <Page.DataContext>
@@ -143,6 +146,45 @@
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
                         </ScrollViewer>
+                    </Border>
+
+                    <TextBlock Text="Hasonló filmek" FontWeight="Bold" FontSize="24"/>
+                    <Border Style="{StaticResource BorderedPanel}">
+                        <GridView ItemsSource="{Binding Source={StaticResource MoviesViewSource}}" IsItemClickEnabled="True" ItemClick="Movie_Clicked_Navigate_To_Details">
+                            <GridView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Width="150" Height="225" Margin="10 0 10 0">
+                                            <Image Source="{Binding poster}"
+                                                Stretch="UniformToFill" VerticalAlignment="Center" />
+                                            <Border VerticalAlignment="Bottom" Background="#AA000000">
+                                                <TextBlock Text="{Binding title}" Margin="12" Foreground="White"/>
+                                            </Border>
+                                        </Grid>
+                                </DataTemplate>
+                            </GridView.ItemTemplate>
+                        </GridView>
+                        <!--<ScrollViewer HorizontalScrollBarVisibility="Visible">
+                            <ItemsControl ItemsSource="{Binding RelatedMovies.results}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Click="Movie_Clicked_Navigate_To_Details">
+                                            <Grid Width="150" Height="225" Margin="10 0 10 0">
+                                                <Image Source="{Binding poster}"
+                                                    Stretch="UniformToFill" VerticalAlignment="Center" />
+                                                <Border VerticalAlignment="Bottom" Background="#AA000000">
+                                                    <TextBlock Text="{Binding title}" Margin="12" Foreground="White"/>
+                                                </Border>
+                                            </Grid>
+                                        </Button>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>-->
                     </Border>
 
                     <TextBlock Text="Információk" FontWeight="Bold" FontSize="24" />

@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using WhatToWatch.Models;
+using Windows.Services.Maps;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -233,6 +234,38 @@ namespace WhatToWatch.Services
             else
             {
                 return null;
+            }
+        }
+
+        public async Task<MovieList> GetRelatedMoviesAsync(int movieId)
+        {
+            var options = new RestClientOptions($"https://api.themoviedb.org/3/movie/{movieId}/recommendations?language=hu&page=1");
+            var client = new RestClient(options);
+            var request = new RestRequest("");
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Authorization", $"Bearer {apiKey}");
+            var response = await client.GetAsync(request);
+            if(response.IsSuccessStatusCode)
+            {
+                MovieList result = JsonConvert.DeserializeObject<MovieList>(response.Content);
+                await GetPostersForMovieListAsync(result);
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private async Task GetPostersForMovieListAsync(MovieList movieList)
+        {
+            foreach (var movie in movieList.results)
+            {
+                var image = await GetMoviePosterAsync(movie.poster_path);
+                if (image != null)
+                {
+                    movie.poster = image;
+                }
             }
         }
     }
