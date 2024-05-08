@@ -48,8 +48,15 @@ namespace WhatToWatch.Models
         {
             get
             {
-                DateTime releaseDate = DateTime.Parse(release_date);
-                return releaseDate.ToString("yyyy");
+                if(release_date != null)
+                {
+                    DateTime releaseDate = DateTime.Parse(release_date);
+                    return releaseDate.ToString("yyyy");
+                }
+                else
+                {
+                    return "-";
+                }
             }
         }
 
@@ -57,7 +64,15 @@ namespace WhatToWatch.Models
         {
             get
             {
-                return $"{runtime / 60} óra {runtime % 60} perc";
+                if(runtime != null)
+                {
+                    return $"{runtime / 60} óra {runtime % 60} perc";
+                }
+                else
+                {
+                    return "-";
+                }
+                
             }
         }
 
