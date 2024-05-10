@@ -89,44 +89,47 @@ namespace WhatToWatch.Services
             }
         }
 
+        private async Task GetPostersForMovieListAsync(MovieList movieList)
+        {
+            foreach (var movie in movieList.results)
+            {
+                var image = await GetMoviePosterAsync(movie.poster_path);
+                if (image != null)
+                {
+                    movie.poster = image;
+                }
+            }
+        }
+
+        private async Task<MovieList> GetMovieListWithPosterAsync(string path)
+        {
+            var resultList = await GetAsync<MovieList>(path);
+            if (resultList != default)
+            {
+                await GetPostersForMovieListAsync(resultList);
+            }
+            return resultList;
+        }
+
         public async Task<MovieList> GetPopularMovieListAsync()
         {
-            var popularList = await GetAsync<MovieList>("movie/popular?language=hu&page=1");
-            if(popularList != default)
-            {
-                await GetPostersForMovieListAsync(popularList);
-            }
-            return popularList;
+
+            return await GetMovieListWithPosterAsync("movie/popular?language=hu&page=1");
         }
 
         public async Task<MovieList> GetNowPlayingMoviesAsync()
         {
-            var nowPlayingList = await GetAsync<MovieList>("movie/now_playing?language=hu&page=1");
-            if (nowPlayingList != default)
-            {
-                await GetPostersForMovieListAsync(nowPlayingList);
-            }
-            return nowPlayingList;
+            return await GetMovieListWithPosterAsync("movie/now_playing?language=hu&page=1");
         }
 
         public async Task<MovieList> GetTopRatedMoviesAsync()
         {
-            var topRatedList = await GetAsync<MovieList>("movie/top_rated?language=hu&page=1");
-            if (topRatedList != default)
-            {
-                await GetPostersForMovieListAsync(topRatedList);
-            }
-            return topRatedList;
+            return await GetMovieListWithPosterAsync("movie/top_rated?language=hu&page=1");
         }
 
         public async Task<MovieList> GetUpcomingMoviesAsync()
         {
-            var upcomingList = await GetAsync<MovieList>("movie/upcoming?language=hu&page=1");
-            if (upcomingList != default)
-            {
-                await GetPostersForMovieListAsync(upcomingList);
-            }
-            return upcomingList;
+            return await GetMovieListWithPosterAsync("movie/upcoming?language=hu&page=1");
         }
 
         public async Task<Movie> GetMovieDetailsAsync(int id)
@@ -151,34 +154,12 @@ namespace WhatToWatch.Services
 
         public async Task<MovieList> GetMovieSearchResultAsync(string queryString)
         {
-            var searchResult =  await GetAsync<MovieList>($"search/movie?query={queryString}&include_adult=false&language=hu&page=1");
-            if (searchResult != default)
-            {
-                await GetPostersForMovieListAsync(searchResult);
-            }
-            return searchResult;
+            return await GetMovieListWithPosterAsync($"search/movie?query={queryString}&include_adult=false&language=hu&page=1");
         }
 
         public async Task<MovieList> GetRelatedMoviesAsync(int movieId)
         {
-            var relatedList = await GetAsync<MovieList>($"movie/{movieId}/recommendations?language=hu&page=1");
-            if (relatedList != default)
-            {
-                await GetPostersForMovieListAsync(relatedList);
-            }
-            return relatedList;
-        }
-
-        private async Task GetPostersForMovieListAsync(MovieList movieList)
-        {
-            foreach (var movie in movieList.results)
-            {
-                var image = await GetMoviePosterAsync(movie.poster_path);
-                if (image != null)
-                {
-                    movie.poster = image;
-                }
-            }
+            return await GetMovieListWithPosterAsync($"movie/{movieId}/recommendations?language=hu&page=1");
         }
     }
 }
