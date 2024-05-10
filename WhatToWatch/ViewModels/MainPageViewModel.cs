@@ -48,14 +48,16 @@ namespace WhatToWatch.ViewModels
         private async Task GetPopularMoviesAsync()
         {
             var popularMovies = await apiService.GetPopularMovieListAsync();
-            await GetPostersForMovieListAsync(popularMovies);
+            //Already called by service
+            //await GetPostersForMovieListAsync(popularMovies);
             AddMovieListToGroups("Népszerű filmek", popularMovies);
         }
 
         private async Task GetNowPlayingMoviesAsync()
         {
             var nowPlayingMovies = await apiService.GetNowPlayingMoviesAsync();
-            await GetPostersForMovieListAsync(nowPlayingMovies);
+            //Already called by service
+            //await GetPostersForMovieListAsync(nowPlayingMovies);
             AddMovieListToGroups("Jelenleg a mozikban", nowPlayingMovies);
 
         }
@@ -63,14 +65,16 @@ namespace WhatToWatch.ViewModels
         private async Task GetTopRatedMoviesAsync()
         {
             var topRatedMovies = await apiService.GetTopRatedMoviesAsync();
-            await GetPostersForMovieListAsync(topRatedMovies);
+            //Already called by service
+            //await GetPostersForMovieListAsync(topRatedMovies);
             AddMovieListToGroups("Legjobbra értékelt filmek", topRatedMovies);
         }
 
         private async Task GetUpcomingMoviesAsync()
         {
             var upcomingMovies = await apiService.GetUpcomingMoviesAsync();
-            await GetPostersForMovieListAsync(upcomingMovies);
+            //Already called by service
+            //await GetPostersForMovieListAsync(upcomingMovies);
             AddMovieListToGroups("Újdonságok", upcomingMovies);
         }
 
@@ -100,8 +104,9 @@ namespace WhatToWatch.ViewModels
             if (!string.IsNullOrEmpty(searchString))
             {
                 var searchResult = await apiService.GetMovieSearchResultAsync(searchString);
-                await GetPostersForMovieListAsync(searchResult);
-                foreach(var group in MovieGroups)
+                //Already called by service
+                //await GetPostersForMovieListAsync(searchResult);
+                foreach (var group in MovieGroups)
                 {
                     MovieGroupsCache.Add(group);
                 }

@@ -37,14 +37,21 @@ namespace WhatToWatch.Services
             }
         }
 
-        private async Task<T> GetAsync<T>(Uri uri)
+        private async Task<T> GetAsync<T>(string path)
         {
-            using (var client = new HttpClient())
+            var options = new RestClientOptions($"https://api.themoviedb.org/3/{path}");
+            var client = new RestClient(options);
+            var request = new RestRequest("");
+            request.AddHeader("accept", "application/json");
+            request.AddHeader("Authorization", $"Bearer {apiKey}");
+            var response = await client.GetAsync(request);
+            if (response.IsSuccessStatusCode)
             {
-                var response = await client.GetAsync(uri);
-                var json = await response.Content.ReadAsStringAsync();
-                T result = JsonConvert.DeserializeObject<T>(json);
-                return result;
+                return JsonConvert.DeserializeObject<T>(response.Content);
+            }
+            else 
+            {
+                return default;
             }
         }
 
@@ -84,193 +91,82 @@ namespace WhatToWatch.Services
 
         public async Task<MovieList> GetPopularMovieListAsync()
         {
-            var options = new RestClientOptions("https://api.themoviedb.org/3/movie/popular?language=hu&page=1");
-            var client = new RestClient(options);
-            var request = new RestRequest("");
-            request.AddHeader("accept", "application/json");
-            request.AddHeader("Authorization", $"Bearer {apiKey}");
-            var response = await client.GetAsync(request);
-            if (response.IsSuccessStatusCode)
+            var popularList = await GetAsync<MovieList>("movie/popular?language=hu&page=1");
+            if(popularList != default)
             {
-                MovieList result = JsonConvert.DeserializeObject<MovieList>(response.Content);
-                return result;
+                await GetPostersForMovieListAsync(popularList);
             }
-            else
-            {
-                return new MovieList();
-            }
+            return popularList;
         }
 
         public async Task<MovieList> GetNowPlayingMoviesAsync()
         {
-            var options = new RestClientOptions("https://api.themoviedb.org/3/movie/now_playing?language=hu&page=1");
-            var client = new RestClient(options);
-            var request = new RestRequest("");
-            request.AddHeader("accept", "application/json");
-            request.AddHeader("Authorization", $"Bearer {apiKey}");
-            var response = await client.GetAsync(request);
-            if (response.IsSuccessStatusCode)
+            var nowPlayingList = await GetAsync<MovieList>("movie/now_playing?language=hu&page=1");
+            if (nowPlayingList != default)
             {
-                MovieList result = JsonConvert.DeserializeObject<MovieList>(response.Content);
-                return result;
+                await GetPostersForMovieListAsync(nowPlayingList);
             }
-            else
-            {
-                return new MovieList();
-            }
+            return nowPlayingList;
         }
 
         public async Task<MovieList> GetTopRatedMoviesAsync()
         {
-            var options = new RestClientOptions("https://api.themoviedb.org/3/movie/top_rated?language=hu&page=1");
-            var client = new RestClient(options);
-            var request = new RestRequest("");
-            request.AddHeader("accept", "application/json");
-            request.AddHeader("Authorization", $"Bearer {apiKey}");
-            var response = await client.GetAsync(request);
-            if (response.IsSuccessStatusCode)
+            var topRatedList = await GetAsync<MovieList>("movie/top_rated?language=hu&page=1");
+            if (topRatedList != default)
             {
-                MovieList result = JsonConvert.DeserializeObject<MovieList>(response.Content);
-                return result;
+                await GetPostersForMovieListAsync(topRatedList);
             }
-            else
-            {
-                return null;
-            }
+            return topRatedList;
         }
 
         public async Task<MovieList> GetUpcomingMoviesAsync()
         {
-            var options = new RestClientOptions("https://api.themoviedb.org/3/movie/upcoming?language=hu&page=1");
-            var client = new RestClient(options);
-            var request = new RestRequest("");
-            request.AddHeader("accept", "application/json");
-            request.AddHeader("Authorization", $"Bearer {apiKey}");
-            var response = await client.GetAsync(request);
-            if (response.IsSuccessStatusCode)
+            var upcomingList = await GetAsync<MovieList>("movie/upcoming?language=hu&page=1");
+            if (upcomingList != default)
             {
-                MovieList result = JsonConvert.DeserializeObject<MovieList>(response.Content);
-                return result;
+                await GetPostersForMovieListAsync(upcomingList);
             }
-            else
-            {
-                return null;
-            }
+            return upcomingList;
         }
 
         public async Task<Movie> GetMovieDetailsAsync(int id)
         {
-            var options = new RestClientOptions($"https://api.themoviedb.org/3/movie/{id}?language=hu");
-            var client = new RestClient(options);
-            var request = new RestRequest("");
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("Authorization", $"Bearer {apiKey}");
-            var response = await client.GetAsync(request);
-            if (response.IsSuccessStatusCode)
-            {
-                Movie result = JsonConvert.DeserializeObject<Movie>(response.Content);
-                return result;
-            }
-            else
-            {
-                return null;
-            }
+            return await GetAsync<Movie>($"movie/{id}?language=hu");
         }
 
         public async Task<MovieCast> GetMovieCastAsync(int id)
         {
-            var options = new RestClientOptions($"https://api.themoviedb.org/3/movie/{id}/credits?language=hu");
-            var client = new RestClient(options);
-            var request = new RestRequest("");
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("Authorization", $"Bearer {apiKey}");
-            var response = await client.GetAsync(request);
-            if (response.IsSuccessStatusCode)
-            {
-                MovieCast result = JsonConvert.DeserializeObject<MovieCast>(response.Content);
-                return result;
-            }
-            else
-            {
-                return null;
-            }
+            return await GetAsync<MovieCast>($"movie/{id}/credits?language=hu");
         }
 
         public async Task<Actor> GetActorDetailsAsync(int id)
         {
-            var options = new RestClientOptions($"https://api.themoviedb.org/3/person/{id}?language=hu");
-            var client = new RestClient(options);
-            var request = new RestRequest("");
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("Authorization", $"Bearer {apiKey}");
-            var response = await client.GetAsync(request);
-            if (response.IsSuccessStatusCode)
-            {
-                Actor result = JsonConvert.DeserializeObject<Actor>(response.Content);
-                return result;
-            }
-            else
-            {
-                return null;
-            }
+            return await GetAsync<Actor>($"person/{id}?language=hu");
         }
 
         public async Task<ActorCast> GetActorCastAsync(int id)
         {
-            var options = new RestClientOptions($"https://api.themoviedb.org/3/person/{id}/movie_credits?language=hu");
-            var client = new RestClient(options);
-            var request = new RestRequest("");
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("Authorization", $"Bearer {apiKey}");
-            var response = await client.GetAsync(request);
-            if (response.IsSuccessStatusCode)
-            {
-                ActorCast result = JsonConvert.DeserializeObject<ActorCast>(response.Content);
-                return result;
-            }
-            else
-            {
-                return null;
-            }
+            return await GetAsync<ActorCast>($"person/{id}/movie_credits?language=hu");
         }
 
         public async Task<MovieList> GetMovieSearchResultAsync(string queryString)
         {
-            var options = new RestClientOptions($"https://api.themoviedb.org/3/search/movie?query={queryString}&include_adult=false&language=hu&page=1");
-            var client = new RestClient(options);
-            var request = new RestRequest("");
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("Authorization", $"Bearer {apiKey}");
-            var response = await client.GetAsync(request);
-            if (response.IsSuccessStatusCode)
+            var searchResult =  await GetAsync<MovieList>($"search/movie?query={queryString}&include_adult=false&language=hu&page=1");
+            if (searchResult != default)
             {
-                MovieList result = JsonConvert.DeserializeObject<MovieList>(response.Content);
-                return result;
+                await GetPostersForMovieListAsync(searchResult);
             }
-            else
-            {
-                return null;
-            }
+            return searchResult;
         }
 
         public async Task<MovieList> GetRelatedMoviesAsync(int movieId)
         {
-            var options = new RestClientOptions($"https://api.themoviedb.org/3/movie/{movieId}/recommendations?language=hu&page=1");
-            var client = new RestClient(options);
-            var request = new RestRequest("");
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("Authorization", $"Bearer {apiKey}");
-            var response = await client.GetAsync(request);
-            if(response.IsSuccessStatusCode)
+            var relatedList = await GetAsync<MovieList>($"movie/{movieId}/recommendations?language=hu&page=1");
+            if (relatedList != default)
             {
-                MovieList result = JsonConvert.DeserializeObject<MovieList>(response.Content);
-                await GetPostersForMovieListAsync(result);
-                return result;
+                await GetPostersForMovieListAsync(relatedList);
             }
-            else
-            {
-                return null;
-            }
+            return relatedList;
         }
 
         private async Task GetPostersForMovieListAsync(MovieList movieList)
