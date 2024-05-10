@@ -36,7 +36,7 @@ namespace WhatToWatch.ViewModels
             set { Set(ref _credits, value); }
         }
 
-        private ApiService apiService = new ApiService();
+        private ApiService apiService = new ApiService("Assets/apiKey.txt");
 
         public override async Task OnNavigatedToAsync(
             object parameter, NavigationMode mode, IDictionary<string, object> state)

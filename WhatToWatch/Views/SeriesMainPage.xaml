@@ -1,0 +1,81 @@
+﻿<Page
+    x:Class="WhatToWatch.Views.SeriesMainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:local="using:WhatToWatch.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:WhatToWatch.ViewModels"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vm:SeriesMainPageViewModel x:Name="ViewModel"/>
+    </Page.DataContext>
+
+            <Page.Resources>
+                <CollectionViewSource x:Key="MoviesViewSource"
+                      IsSourceGrouped="True"
+                      Source="{Binding SeriesGroups}"
+                      ItemsPath="Movies"/>
+                <Style x:Key="MovieGroupTitleStyle" TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="36" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="Foreground" Value="#333333" />
+                    <Setter Property="Margin" Value="0,10,0,5" />
+                </Style>
+            </Page.Resources>
+
+     <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+
+                <controls:PageHeader Content="Milyen sorozatot szeretne nézni?" Grid.Row="0" Grid.ColumnSpan="2"/>
+                <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0 10 0 0 ">
+                    <TextBlock Text="Sorozatok keresése:" Foreground="Black" FontSize="16" VerticalAlignment="Center" Margin=" 15 0 10 0"/>
+                    <TextBox x:Name="SearchBar" PlaceholderText="Adja meg egy film címét " Width="250" VerticalAlignment="Center" KeyUp="Series_Search"/>
+                    <Button x:Name="GoBackButton" Click="Back_To_Main_Page" IsEnabled="False">
+                        <TextBlock Text="Vissza" Foreground="Black"/>
+                    </Button>
+                </StackPanel>
+
+
+
+                <GridView x:Name="MoviesGrid" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"
+                      ItemsSource="{Binding Source={StaticResource MoviesViewSource}}"
+                      IsItemClickEnabled="True"
+                      ItemClick="Series_Clicked_Navigate_To_Details">    
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="250" Height="375">
+                                <Image Source="{Binding poster}"
+                                    Stretch="UniformToFill" VerticalAlignment="Center" />
+                                <Border VerticalAlignment="Bottom" Background="#AA000000">
+                                    <TextBlock Text="{Binding title}" Margin="12" Foreground="White"/>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                    <GridView.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Title}" Style="{StaticResource MovieGroupTitleStyle}"/>
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </GridView.GroupStyle>
+                </GridView>
+            </Grid>
+</Page>

@@ -2,6 +2,7 @@
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -19,7 +20,22 @@ namespace WhatToWatch.Services
     {
         private readonly Uri serverUrl = new Uri("https://api.themoviedb.org/3");
         private readonly Uri posterUrl = new Uri("https://image.tmdb.org/t/p/w500");
-        private readonly string apiKey = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNzJlYzkzNTJkNjA4MzM5YTU1NDNhY2M3ODM0YjRiYSIsInN1YiI6IjY2MzI1ZGY2YWY0MzI0MDEyYjUzYjE4NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.tmk90JPOZ7RcseOtUQPFOeIqUr7acixGXhmF_pQQtvs";
+        private readonly string apiKey = "";
+
+        public ApiService(string ApiKeyPath) {
+            try
+            {
+                using(StreamReader sr = new StreamReader(ApiKeyPath))
+                {
+                    apiKey = sr.ReadToEnd();
+                    Debug.WriteLine($"String read: {apiKey}");
+
+                }
+            }catch(Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
 
         private async Task<T> GetAsync<T>(Uri uri)
         {
