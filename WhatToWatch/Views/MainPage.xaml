@@ -27,7 +27,7 @@
         </Style>
     </Page.Resources>
 
-    <Grid Background="LightGray">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>

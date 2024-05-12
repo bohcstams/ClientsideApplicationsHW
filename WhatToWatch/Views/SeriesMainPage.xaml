@@ -15,10 +15,10 @@
     </Page.DataContext>
 
             <Page.Resources>
-                <CollectionViewSource x:Key="MoviesViewSource"
+                <CollectionViewSource x:Key="SeriesViewSource"
                       IsSourceGrouped="True"
                       Source="{Binding SeriesGroups}"
-                      ItemsPath="Movies"/>
+                      ItemsPath="Series"/>
                 <Style x:Key="MovieGroupTitleStyle" TargetType="TextBlock">
                     <Setter Property="FontSize" Value="36" />
                     <Setter Property="FontWeight" Value="Bold" />
@@ -53,7 +53,7 @@
 
 
                 <GridView x:Name="MoviesGrid" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"
-                      ItemsSource="{Binding Source={StaticResource MoviesViewSource}}"
+                      ItemsSource="{Binding Source={StaticResource SeriesViewSource}}"
                       IsItemClickEnabled="True"
                       ItemClick="Series_Clicked_Navigate_To_Details">    
                     <GridView.ItemTemplate>
@@ -62,7 +62,7 @@
                                 <Image Source="{Binding poster}"
                                     Stretch="UniformToFill" VerticalAlignment="Center" />
                                 <Border VerticalAlignment="Bottom" Background="#AA000000">
-                                    <TextBlock Text="{Binding title}" Margin="12" Foreground="White"/>
+                                    <TextBlock Text="{Binding name}" Margin="12" Foreground="White"/>
                                 </Border>
                             </Grid>
                         </DataTemplate>

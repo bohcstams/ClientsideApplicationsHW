@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -38,7 +39,7 @@ namespace WhatToWatch.ViewModels
                 await GetUpcomingMoviesAsync();
             }catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Debug.WriteLine(ex.Message);
             }
             
             
@@ -47,17 +48,13 @@ namespace WhatToWatch.ViewModels
 
         private async Task GetPopularMoviesAsync()
         {
-            var popularMovies = await apiService.GetPopularMovieListAsync();
-            //Already called by service
-            //await GetPostersForMovieListAsync(popularMovies);
+            var popularMovies = await apiService.GetPopularMoviesAsync();
             AddMovieListToGroups("Népszerű filmek", popularMovies);
         }
 
         private async Task GetNowPlayingMoviesAsync()
         {
             var nowPlayingMovies = await apiService.GetNowPlayingMoviesAsync();
-            //Already called by service
-            //await GetPostersForMovieListAsync(nowPlayingMovies);
             AddMovieListToGroups("Jelenleg a mozikban", nowPlayingMovies);
 
         }
@@ -65,29 +62,14 @@ namespace WhatToWatch.ViewModels
         private async Task GetTopRatedMoviesAsync()
         {
             var topRatedMovies = await apiService.GetTopRatedMoviesAsync();
-            //Already called by service
-            //await GetPostersForMovieListAsync(topRatedMovies);
             AddMovieListToGroups("Legjobbra értékelt filmek", topRatedMovies);
         }
 
         private async Task GetUpcomingMoviesAsync()
         {
             var upcomingMovies = await apiService.GetUpcomingMoviesAsync();
-            //Already called by service
-            //await GetPostersForMovieListAsync(upcomingMovies);
-            AddMovieListToGroups("Újdonságok", upcomingMovies);
-        }
 
-        private async Task GetPostersForMovieListAsync(MovieList movieList)
-        {
-            foreach(var movie in movieList.results)
-            {
-                var image = await apiService.GetMoviePosterAsync(movie.poster_path);
-                if (image != null)
-                {
-                    movie.poster = image;
-                }
-            }
+            AddMovieListToGroups("Újdonságok", upcomingMovies);
         }
 
         private void AddMovieListToGroups(string title, MovieList movies)

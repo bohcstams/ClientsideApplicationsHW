@@ -58,7 +58,7 @@ namespace WhatToWatch.ViewModels
             try
             {
                 Movie = await apiService.GetMovieDetailsAsync(movieId);
-                Movie.poster = await apiService.GetMoviePosterAsync(Movie.poster_path);
+                Movie.poster = await apiService.GetPosterAsync(Movie.poster_path);
                 Poster = Movie.poster;
                 MovieCast = await apiService.GetMovieCastAsync(movieId);
                 RelatedMovies = await apiService.GetRelatedMoviesAsync(movieId);

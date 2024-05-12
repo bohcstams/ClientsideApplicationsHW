@@ -45,7 +45,7 @@ namespace WhatToWatch.ViewModels
             try
             {
                 Actor = await apiService.GetActorDetailsAsync(actorId);
-                ProfilePicture = await apiService.GetMoviePosterAsync(Actor.profile_path);
+                ProfilePicture = await apiService.GetPosterAsync(Actor.profile_path);
                 Credits = await apiService.GetActorCastAsync(actorId);
 
             }catch(Exception ex) { 

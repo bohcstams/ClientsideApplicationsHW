@@ -64,7 +64,7 @@ namespace WhatToWatch.Services
             }
         }
 
-        public async Task<BitmapImage> GetMoviePosterAsync(string path)
+        public async Task<BitmapImage> GetPosterAsync(string path)
         {
             var response = await GetResponseAsync(new Uri($"{posterUrl.OriginalString}/{path}"));
             if (response.IsSuccessStatusCode)
@@ -93,10 +93,22 @@ namespace WhatToWatch.Services
         {
             foreach (var movie in movieList.results)
             {
-                var image = await GetMoviePosterAsync(movie.poster_path);
+                var image = await GetPosterAsync(movie.poster_path);
                 if (image != null)
                 {
                     movie.poster = image;
+                }
+            }
+        }
+
+        private async Task GetPosterForSeriesListAsync(SeriesList seriesList)
+        {
+            foreach (var series in seriesList.results)
+            {
+                var image = await GetPosterAsync(series.poster_path);
+                if (image != null)
+                {
+                    series.poster = image;
                 }
             }
         }
@@ -111,7 +123,17 @@ namespace WhatToWatch.Services
             return resultList;
         }
 
-        public async Task<MovieList> GetPopularMovieListAsync()
+        private async Task<SeriesList> GetSeriesListWithPosterAsync(string path)
+        {
+            var resultList = await GetAsync<SeriesList>(path);
+            if(resultList != default)
+            {
+                await GetPosterForSeriesListAsync(resultList);
+            }
+            return resultList;
+        }
+
+        public async Task<MovieList> GetPopularMoviesAsync()
         {
 
             return await GetMovieListWithPosterAsync("movie/popular?language=hu&page=1");
@@ -160,6 +182,26 @@ namespace WhatToWatch.Services
         public async Task<MovieList> GetRelatedMoviesAsync(int movieId)
         {
             return await GetMovieListWithPosterAsync($"movie/{movieId}/recommendations?language=hu&page=1");
+        }
+
+        public async Task<SeriesList> GetPopularSeriesAsync()
+        {
+            return await GetSeriesListWithPosterAsync("tv/popular?language=hu&page=1");
+        }
+
+        public async Task<SeriesList> GetOnTheAirSeriesAsync()
+        {
+            return await GetSeriesListWithPosterAsync("tv/on_the_air?language=hu&page=1");
+        }
+
+        public async Task<SeriesList> GetAiringTodaySeriesAsync()
+        {
+            return await GetSeriesListWithPosterAsync("tv/airing_today?language=hu&page=1");
+        }
+
+        public async Task<SeriesList> GetTopRatedSeriesAsync()
+        {
+            return await GetSeriesListWithPosterAsync("tv/top_rated?language=hu&page=1");
         }
     }
 }

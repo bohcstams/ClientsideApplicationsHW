@@ -119,12 +119,19 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Actor.cs" />
-    <Compile Include="Models\ActorClass.cs" />
-    <Compile Include="Models\Movie.cs" />
-    <Compile Include="Models\MovieCast.cs" />
-    <Compile Include="Models\MovieGroup.cs" />
-    <Compile Include="Models\MovieList.cs" />
+    <Compile Include="Models\Actors\Actor.cs" />
+    <Compile Include="Models\Actors\ActorCast.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Movies\Movie.cs" />
+    <Compile Include="Models\Movies\MovieCast.cs" />
+    <Compile Include="Models\Movies\MovieGroup.cs" />
+    <Compile Include="Models\Movies\MovieList.cs" />
+    <Compile Include="Models\Production_Company.cs" />
+    <Compile Include="Models\Production_Country.cs" />
+    <Compile Include="Models\TVSeries\Series.cs" />
+    <Compile Include="Models\TVSeries\SeriesGroup.cs" />
+    <Compile Include="Models\TVSeries\SeriesList.cs" />
+    <Compile Include="Models\Spoken_Language.cs" />
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="ViewModels\ActorDetailsPageViewModel.cs" />
     <Compile Include="ViewModels\DetailsPageViewModel.cs" />
