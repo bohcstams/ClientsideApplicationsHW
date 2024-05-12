@@ -37,8 +37,7 @@ namespace WhatToWatch.Views
                 var searchString = SearchBar.Text;
                 ViewModel.MovieSearch(searchString);
                 GoBackButton.IsEnabled = true;
-            }
-            
+            }  
         }
 
         private void Back_To_Main_Page(object sender, RoutedEventArgs e)

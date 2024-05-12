@@ -203,5 +203,10 @@ namespace WhatToWatch.Services
         {
             return await GetSeriesListWithPosterAsync("tv/top_rated?language=hu&page=1");
         }
+
+        public async Task<SeriesList> GetSeriesSearchResultAsync(string queryString)
+        {
+            return await GetSeriesListWithPosterAsync($"search/tv?query={queryString}&include_adult=false&language=hu&page=1");
+        }
     }
 }

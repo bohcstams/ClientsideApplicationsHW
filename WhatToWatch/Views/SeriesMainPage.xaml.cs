@@ -29,17 +29,23 @@ namespace WhatToWatch.Views
 
         private void Series_Clicked_Navigate_To_Details(object sender, ItemClickEventArgs e)
         {
-
+          
         }
 
         private void Back_To_Main_Page(object sender, RoutedEventArgs e)
         {
-
+            GoBackButton.IsEnabled = false;
+            ViewModel.BackToMainPage();
         }
 
         private void Series_Search(object sender, KeyRoutedEventArgs e)
         {
-
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                var searchString = SearchBar.Text;
+                ViewModel.SeriesSearch(searchString);
+                GoBackButton.IsEnabled = true;
+            }
         }
     }
 }

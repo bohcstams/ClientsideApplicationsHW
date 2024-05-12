@@ -17,7 +17,7 @@ namespace WhatToWatch.ViewModels
         public ObservableCollection<SeriesGroup> SeriesGroups { get; set; } =
             new ObservableCollection<SeriesGroup>();
 
-        public ObservableCollection<SeriesGroup> MovieGroupsCache { get; set; } =
+        public ObservableCollection<SeriesGroup> SeriesGroupsCache { get; set; } =
             new ObservableCollection<SeriesGroup>();
 
         private ApiService apiService = new ApiService("Assets/apiKey.txt");
@@ -37,6 +37,30 @@ namespace WhatToWatch.ViewModels
                 Debug.WriteLine(ex.Message);
             }
             await base.OnNavigatedToAsync(parameter, mode, state);
+        }
+
+        public async void SeriesSearch(string searchString)
+        {
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var searchResult = await apiService.GetSeriesSearchResultAsync(searchString);
+                foreach(var group in SeriesGroups)
+                {
+                    SeriesGroupsCache.Add(group);
+                }
+                SeriesGroups.Clear();
+                AddSeriesListToGroups("Eredmények", searchResult);
+            }
+        }
+
+        public void BackToMainPage()
+        {
+            SeriesGroups.Clear();
+            foreach(var group in SeriesGroupsCache)
+            {
+                SeriesGroups.Add(group);
+            }
+            SeriesGroupsCache.Clear();
         }
 
         private async Task GetPopularSeriesAsync()

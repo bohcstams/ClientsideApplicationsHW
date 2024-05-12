@@ -86,8 +86,6 @@ namespace WhatToWatch.ViewModels
             if (!string.IsNullOrEmpty(searchString))
             {
                 var searchResult = await apiService.GetMovieSearchResultAsync(searchString);
-                //Already called by service
-                //await GetPostersForMovieListAsync(searchResult);
                 foreach (var group in MovieGroups)
                 {
                     MovieGroupsCache.Add(group);
