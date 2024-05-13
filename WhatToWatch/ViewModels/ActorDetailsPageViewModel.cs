@@ -55,7 +55,12 @@ namespace WhatToWatch.ViewModels
                 ProfilePicture = await apiService.GetPosterAsync(Actor.profile_path);
                 Credits = await apiService.GetActorCastAsync(actorId);
                 SeriesCredits = await apiService.GetActorSeriesCreditsAsync(actorId);
-            }catch(Exception ex) { 
+            }catch(Exception ex) {
+                var checker = new ConnectionService();
+                if (!checker.IsConnected())
+                {
+                    checker.ShowErrorMessage("Kérjük ellenőrizze internetkapcsolatát!");
+                }
             }
 
             await base.OnNavigatedToAsync (parameter, mode, state);

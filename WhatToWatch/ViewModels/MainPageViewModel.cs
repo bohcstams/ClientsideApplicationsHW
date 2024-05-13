@@ -10,6 +10,7 @@ using Template10.Mvvm;
 using WhatToWatch.Models;
 using WhatToWatch.Services;
 using WhatToWatch.Views;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Navigation;
 
 namespace WhatToWatch.ViewModels
@@ -39,6 +40,11 @@ namespace WhatToWatch.ViewModels
                 await GetUpcomingMoviesAsync();
             }catch (Exception ex)
             {
+                var checker = new ConnectionService();
+                if (!checker.IsConnected())
+                {
+                    checker.ShowErrorMessage("Kérjük ellenőrizze internetkapcsolatát!");
+                }
                 Debug.WriteLine(ex.Message);
             }
             

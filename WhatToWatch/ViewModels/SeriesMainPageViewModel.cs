@@ -35,6 +35,11 @@ namespace WhatToWatch.ViewModels
                 await GetAiringTodaySeriesAsync();
             }catch(Exception ex)
             {
+                var checker = new ConnectionService();
+                if (!checker.IsConnected())
+                {
+                    checker.ShowErrorMessage("Kérjük ellenőrizze internetkapcsolatát!");
+                }
                 Debug.WriteLine(ex.Message);
             }
             await base.OnNavigatedToAsync(parameter, mode, state);

@@ -134,6 +134,7 @@
     <Compile Include="Models\TVSeries\SeriesList.cs" />
     <Compile Include="Models\Spoken_Language.cs" />
     <Compile Include="Services\ApiService.cs" />
+    <Compile Include="Services\ConnectionService.cs" />
     <Compile Include="ViewModels\ActorDetailsPageViewModel.cs" />
     <Compile Include="ViewModels\DetailsPageViewModel.cs" />
     <Compile Include="ViewModels\EntryScreenViewModel.cs" />
