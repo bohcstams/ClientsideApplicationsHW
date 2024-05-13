@@ -82,8 +82,8 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Rectangle Fill="Black" Width="100" Height="20" Grid.Row="0" HorizontalAlignment="Left"/>
-                            <Rectangle Fill="Green" Width="{Binding Series.VotePercent}" Height="20" Grid.Row="0" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding Series.VotePercent}" Foreground="White"/>
+                            <Rectangle Fill="Green" Width="{Binding Movie.VotePercent}" Height="20" Grid.Row="0" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Movie.VotePercent}" Foreground="White"/>
                         </Grid>
                     </Border>
                     <TextBlock Text="Áttekintés" FontWeight="Bold" FontSize="24" />

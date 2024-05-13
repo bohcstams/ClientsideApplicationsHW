@@ -9,20 +9,54 @@ using Windows.UI.Xaml.Media.Imaging;
 namespace WhatToWatch.Models
 {
 
+    /// <summary>
+    /// Egy  sorozat évadának adatait összefoglaló osztály
+    /// </summary>
     public class Season
     {
-        public string _id { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja az évad lejátsztásának dátumát
+        /// </summary>
         public string air_date { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja az évad epizódjainak számát
+        /// </summary>
         public int episode_count { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja az évad epizódjait
+        /// </summary>
         public List<Episode> episodes { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja az évad címét
+        /// </summary>
         public string name { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja az évad áttekintését
+        /// </summary>
         public string overview { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja az évad azonosítóját
+        /// </summary>
         public int id { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja az évad poszterének útvonalát
+        /// </summary>
         public string poster_path { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja az évad sorszámát
+        /// </summary>
         public int season_number { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja az évad szavazatainak átlagát
+        /// </summary>
         public float vote_average { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja az évad poszterét
+        /// </summary>
         public BitmapImage poster { get; set; }
-
+        /// <summary>
+        /// Visszaadja vagy beállítja az évad címét az epizódok számával együtt
+        /// </summary>
         public string NameWithEpisodeCount
         {
             get
@@ -32,38 +66,35 @@ namespace WhatToWatch.Models
         }
     }
 
+    /// <summary>
+    /// Egy epizód adatait összefoglaló osztály
+    /// </summary>
     public class Episode
     {
+        /// <summary>
+        /// Visszaadja vagy beállítja az epizód lejátsztásának dátumát
+        /// </summary>
         public string air_date { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja az epizód sorszámát
+        /// </summary>
         public int episode_number { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja az epizód típusát
+        /// </summary>
         public string episode_type { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja az epizód azonosítóját
+        /// </summary>
         public int id { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja az epizód címét
+        /// </summary>
         public string name { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja az epizód áttekintését
+        /// </summary>
         public string overview { get; set; }
-        public string production_code { get; set; }
-        public int? runtime { get; set; }
-        public int season_number { get; set; }
-        public int show_id { get; set; }
-        public string still_path { get; set; }
-        public float vote_average { get; set; }
-        public int vote_count { get; set; }
-        public Crew[] crew { get; set; }
-        public Guest_Stars[] guest_stars { get; set; }
-    }
-
-    public class Guest_Stars
-    {
-        public string character { get; set; }
-        public string credit_id { get; set; }
-        public int order { get; set; }
-        public bool adult { get; set; }
-        public int gender { get; set; }
-        public int id { get; set; }
-        public string known_for_department { get; set; }
-        public string name { get; set; }
-        public string original_name { get; set; }
-        public float popularity { get; set; }
-        public string profile_path { get; set; }
     }
 
 }

@@ -31,14 +31,14 @@ namespace WhatToWatch.Views
         private void Movie_Clicked_Navigate_To_Details(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
-            var movieHandler = (CastMovie)button.DataContext;
+            var movieHandler = (Movie)button.DataContext;
             ViewModel.NavigateToDetails(movieHandler.id);
         }
 
         private void Series_Clicked_Navigate_To_Details(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
-            var seriesHandler = (CastMovie)button.DataContext;
+            var seriesHandler = (Movie)button.DataContext;
             ViewModel.NavigateToSeriesDetails(seriesHandler.id);
         }
     }

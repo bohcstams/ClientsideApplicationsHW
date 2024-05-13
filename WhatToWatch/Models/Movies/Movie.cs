@@ -9,41 +9,90 @@ using Windows.UI.Xaml.Media.Imaging;
 namespace WhatToWatch.Models
 {
 
+    /// <summary>
+    /// Egy film adatait összefoglaló osztály
+    /// </summary>
     public class Movie
     {
+        /// <summary>
+        /// Visszaadja, vagy beállítja hogy a film felnőttfilm-e
+        /// </summary>
         public bool adult { get; set; }
-        public string backdrop_path { get; set; }
-        public object belongs_to_collection { get; set; }
-        public int budget { get; set; }
-        public List<Genre> genres { get; set; }
-        public string homepage { get; set; }
-        public int id { get; set; }
-        public string imdb_id { get; set; }
-        public List<string> origin_country { get; set; }
-        public string original_language { get; set; }
-        public string original_title { get; set; }
-        public string overview { get; set; }
-        public float popularity { get; set; }
-        public string poster_path { get; set; }
-        public List<Production_Company> production_companies { get; set; }
-        public List<Production_Country> production_countries { get; set; }
-        public string release_date { get; set; }
-        public int revenue { get; set; }
-        public int runtime { get; set; }
-        public List<Spoken_Language> spoken_languages { get; set; }
-        public string status { get; set; }
-        public string tagline { get; set; }
-        public string title { get; set; }
-        public bool video { get; set; }
-        public float vote_average { get; set; }
-        public int vote_count { get; set; }
-        public BitmapImage poster { get; set; }
 
+        /// <summary>
+        /// Visszaadja, vagy beállítja a film hátterének útvonalát
+        /// </summary>
+        public string backdrop_path { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a film költségét
+        /// </summary>
+        public int budget { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a film műfajainak listájátd
+        /// </summary>
+        public List<Genre> genres { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a film azonosítóját
+        /// </summary>
+        public int id { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a film nevét
+        /// </summary>
+        public string name { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a film áttekintését
+        /// </summary>
+        public string overview { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a film népszerűségét
+        /// </summary>
+        public float popularity { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a film poszterének útvonalát
+        /// </summary>
+        public string poster_path { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a film kiadásának dátumát
+        /// </summary>
+        public string release_date { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a film bevételét
+        /// </summary>
+        public int revenue { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a film hosszát
+        /// </summary>
+        public int runtime { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a film mottóját
+        /// </summary>
+        public string tagline { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a film címét
+        /// </summary>
+        public string title { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a filmre adott szavazatok átlagát
+        /// </summary>
+        public float vote_average { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a filmre adott szavazatok számát
+        /// </summary>
+        public int vote_count { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a film poszterét
+        /// </summary>
+        public BitmapImage poster { get; set; }
+        /// <summary>
+        /// Visszaadja a filmre adott szavazatok átlágát százalékban
+        /// </summary>
         public double VotePercent
         {
             get { return vote_average * 10; }
         }
-
+        /// <summary>
+        /// Visszaadja a film kiadási dátumát formázva
+        /// </summary>
         public string ReleaseYear
         {
             get
@@ -59,7 +108,9 @@ namespace WhatToWatch.Models
                 }
             }
         }
-
+        /// <summary>
+        /// Visszaadja a film hosszát formázva
+        /// </summary>
         public string Runtime
         {
             get
@@ -76,6 +127,9 @@ namespace WhatToWatch.Models
             }
         }
 
+        /// <summary>
+        /// Visszaadja a film költségét formázva
+        /// </summary>
         public string Budget
         {
             get
@@ -90,7 +144,9 @@ namespace WhatToWatch.Models
                 }
             }
         }
-
+        /// <summary>
+        /// Visszaadja a film bevételét formázva
+        /// </summary>
         public string Revenue
         {
             get

@@ -6,42 +6,63 @@ using System.Threading.Tasks;
 
 namespace WhatToWatch.Models
 {
-
+    /// <summary>
+    /// Egy film vagy sorozat stáblistáját összefoglaló osztály
+    /// </summary>
     public class Credits
     {
+        /// <summary>
+        /// /// <summary>
+        /// Visszaadja vagy beállítja a stáblista azonosítóját
+        /// </summary>
         public int id { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja a stáblista színészeinek listáját
+        /// </summary>
         public List<Cast> cast { get; set; }
+        /// <summary>
+        /// Visszaadja vagy beállítja a stáblista munkatársainak listáját
+        /// </summary>
         public List<Crew> crew { get; set; }
     }
 
     public class Cast
     {
-        public bool adult { get; set; }
-        public int gender { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a színész azonosítóját
+        /// </summary>
         public int id { get; set; }
-        public string known_for_department { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a színész nevét
+        /// </summary>
         public string name { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a színész eredeti nevét
+        /// </summary>
         public string original_name { get; set; }
-        public float popularity { get; set; }
-        public string profile_path { get; set; }
-        public int cast_id { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a színész által játszott szereplő nevét
+        /// </summary>
         public string character { get; set; }
-        public string credit_id { get; set; }
-        public int order { get; set; }
     }
 
     public class Crew
     {
-        public bool adult { get; set; }
-        public int gender { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a színész azonosítóját
+        /// </summary>
         public int id { get; set; }
-        public string known_for_department { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a színész nevét
+        /// </summary>
         public string name { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a színész eredeti nevét
+        /// </summary>
         public string original_name { get; set; }
-        public float popularity { get; set; }
-        public string profile_path { get; set; }
-        public string credit_id { get; set; }
-        public string department { get; set; }
+        /// <summary>
+        /// Visszaadja, vagy beállítja a színész által végzett munkát
+        /// </summary>
         public string job { get; set; }
     }
 
