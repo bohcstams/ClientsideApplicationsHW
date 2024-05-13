@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using WhatToWatch.Models;
 using Windows.Services.Maps;
 using Windows.Storage.Streams;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace WhatToWatch.Services
@@ -71,16 +72,28 @@ namespace WhatToWatch.Services
             {
                 // Read the content as a byte array
                 byte[] imageBytes = await response.Content.ReadAsByteArrayAsync();
-
-                // Create a BitmapImage from the byte array
                 BitmapImage bitmapImage = new BitmapImage();
-                using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
+                if (imageBytes == null)
                 {
-                    await stream.WriteAsync(imageBytes.AsBuffer());
-                    stream.Seek(0);
-                    await bitmapImage.SetSourceAsync(stream);
+                    try
+                    {
+                        bitmapImage.UriSource = new System.Uri("/Assets/movie-poster-placeholder.png");
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message);
+                    }
                 }
-
+                else
+                {
+                    using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
+                    {
+                        await stream.WriteAsync(imageBytes.AsBuffer());
+                        stream.Seek(0);
+                        await bitmapImage.SetSourceAsync(stream);
+                    }
+                }
+                //bitmapImage.UriSource = new System.Uri("ms-appx:///Assets/movie-poster-placeholder.png");
                 return bitmapImage;
             }
             else
@@ -93,7 +106,22 @@ namespace WhatToWatch.Services
         {
             foreach (var movie in movieList.results)
             {
-                var image = await GetPosterAsync(movie.poster_path);
+                BitmapImage image = new BitmapImage();
+                if(movie.poster_path == null)
+                {
+                    try
+                    {
+                        image.UriSource = new System.Uri("ms-appx:///Assets/movie-poster-placeholder.png");
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message);
+                    }
+                }
+                else
+                {
+                    image = await GetPosterAsync(movie.poster_path);
+                }
                 if (image != null)
                 {
                     movie.poster = image;
@@ -105,7 +133,22 @@ namespace WhatToWatch.Services
         {
             foreach (var series in seriesList.results)
             {
-                var image = await GetPosterAsync(series.poster_path);
+                BitmapImage image = new BitmapImage();
+                if (series.poster_path == null)
+                {
+                    try
+                    {
+                        image.UriSource = new System.Uri("ms-appx:///Assets/movie-poster-placeholder.png");
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message);
+                    }
+                }
+                else
+                {
+                    image = await GetPosterAsync(series.poster_path);
+                }
                 if (image != null)
                 {
                     series.poster = image;

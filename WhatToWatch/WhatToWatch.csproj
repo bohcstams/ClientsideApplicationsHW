@@ -168,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\apiKey.txt" />
+    <Content Include="Assets\movie-poster-placeholder.png" />
     <Content Include="Assets\movies_image.png" />
     <Content Include="Assets\series_image.png" />
     <Content Include="Properties\Default.rd.xml" />
