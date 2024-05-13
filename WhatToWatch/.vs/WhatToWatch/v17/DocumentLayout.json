@@ -3,60 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|c:\\users\\egyip\\desktop\\bme\\klitech\\h\u00E1zi\\clientsideapplicationshw\\whattowatch\\views\\seriesdeatilspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|solutionrelative:views\\seriesdeatilspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\views\\detailspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|solutionrelative:views\\detailspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\models\\tvseries\\season.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|solutionrelative:models\\tvseries\\season.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\models\\tvseries\\series.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|solutionrelative:models\\tvseries\\series.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\views\\detailspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|solutionrelative:views\\detailspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\viewmodels\\seriesdetailspageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|solutionrelative:viewmodels\\seriesdetailspageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|c:\\users\\egyip\\desktop\\bme\\klitech\\h\u00E1zi\\clientsideapplicationshw\\whattowatch\\viewmodels\\detailspageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|solutionrelative:viewmodels\\detailspageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\views\\seriesdeatilspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|solutionrelative:views\\seriesdeatilspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|c:\\users\\egyip\\desktop\\bme\\klitech\\h\u00E1zi\\clientsideapplicationshw\\whattowatch\\viewmodels\\actordetailspageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|solutionrelative:viewmodels\\actordetailspageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|solutionrelative:services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\models\\movies\\moviecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|solutionrelative:models\\movies\\moviecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\viewmodels\\mainpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|solutionrelative:viewmodels\\mainpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\models\\movies\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|solutionrelative:models\\movies\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\views\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|solutionrelative:views\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|c:\\users\\egyip\\desktop\\bme\\klitech\\h\u00E1zi\\clientsideapplicationshw\\whattowatch\\views\\entryscreen.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{44D65825-527D-4E2C-9AB4-E33D70FD8CC1}|WhatToWatch.csproj|solutionrelative:views\\entryscreen.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 351,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,186 +26,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "SeriesDeatilsPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Views\\SeriesDeatilsPage.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\SeriesDeatilsPage.xaml.cs",
-              "ToolTip": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Views\\SeriesDeatilsPage.xaml.cs",
-              "RelativeToolTip": "Views\\SeriesDeatilsPage.xaml.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAqwC0AAABAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-13T00:43:09.091Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SeriesDetailsPageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\ViewModels\\SeriesDetailsPageViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\SeriesDetailsPageViewModel.cs",
-              "ToolTip": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\ViewModels\\SeriesDetailsPageViewModel.cs",
-              "RelativeToolTip": "ViewModels\\SeriesDetailsPageViewModel.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAuwDoAAABKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T22:29:49.691Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SeriesDeatilsPage.xaml",
-              "DocumentMoniker": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Views\\SeriesDeatilsPage.xaml",
-              "RelativeDocumentMoniker": "Views\\SeriesDeatilsPage.xaml",
-              "ToolTip": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Views\\SeriesDeatilsPage.xaml",
-              "RelativeToolTip": "Views\\SeriesDeatilsPage.xaml",
+              "Title": "EntryScreen.xaml",
+              "DocumentMoniker": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Views\\EntryScreen.xaml",
+              "RelativeDocumentMoniker": "Views\\EntryScreen.xaml",
+              "ToolTip": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Views\\EntryScreen.xaml",
+              "RelativeToolTip": "Views\\EntryScreen.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-12T22:21:49.663Z",
+              "WhenOpened": "2024-05-13T09:19:26.611Z",
               "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 249,
-          "SelectedChildIndex": 3,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Season.cs",
-              "DocumentMoniker": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Models\\TVSeries\\Season.cs",
-              "RelativeDocumentMoniker": "Models\\TVSeries\\Season.cs",
-              "ToolTip": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Models\\TVSeries\\Season.cs",
-              "RelativeToolTip": "Models\\TVSeries\\Season.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAxwB0AAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-13T00:11:04.041Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DetailsPageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\ViewModels\\DetailsPageViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\DetailsPageViewModel.cs",
-              "ToolTip": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\ViewModels\\DetailsPageViewModel.cs",
-              "RelativeToolTip": "ViewModels\\DetailsPageViewModel.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAmwCUAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T22:29:55.883Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DetailsPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Views\\DetailsPage.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\DetailsPage.xaml.cs",
-              "ToolTip": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Views\\DetailsPage.xaml.cs",
-              "RelativeToolTip": "Views\\DetailsPage.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-13T00:43:31.896Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DetailsPage.xaml",
-              "DocumentMoniker": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Views\\DetailsPage.xaml",
-              "RelativeDocumentMoniker": "Views\\DetailsPage.xaml",
-              "ToolTip": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Views\\DetailsPage.xaml",
-              "RelativeToolTip": "Views\\DetailsPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-12T22:43:59.861Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Series.cs",
-              "DocumentMoniker": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Models\\TVSeries\\Series.cs",
-              "RelativeDocumentMoniker": "Models\\TVSeries\\Series.cs",
-              "ToolTip": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Models\\TVSeries\\Series.cs",
-              "RelativeToolTip": "Models\\TVSeries\\Series.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAA3wBsAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T22:52:49.703Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ActorDetailsPageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\ViewModels\\ActorDetailsPageViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\ActorDetailsPageViewModel.cs",
-              "ToolTip": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\ViewModels\\ActorDetailsPageViewModel.cs",
-              "RelativeToolTip": "ViewModels\\ActorDetailsPageViewModel.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAcwEYAAABMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-13T08:24:00.259Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ApiService.cs",
-              "DocumentMoniker": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Services\\ApiService.cs",
-              "RelativeDocumentMoniker": "Services\\ApiService.cs",
-              "ToolTip": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Services\\ApiService.cs",
-              "RelativeToolTip": "Services\\ApiService.cs",
-              "ViewState": "AQIAAN4AAAAAAAAAAAAcwO4AAABZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T21:13:02.317Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MovieCast.cs",
-              "DocumentMoniker": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Models\\Movies\\MovieCast.cs",
-              "RelativeDocumentMoniker": "Models\\Movies\\MovieCast.cs",
-              "ToolTip": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Models\\Movies\\MovieCast.cs",
-              "RelativeToolTip": "Models\\Movies\\MovieCast.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-13T00:22:16.073Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MainPageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\ViewModels\\MainPageViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\MainPageViewModel.cs",
-              "ToolTip": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\ViewModels\\MainPageViewModel.cs",
-              "RelativeToolTip": "ViewModels\\MainPageViewModel.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAAABMAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T21:37:49.638Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Movie.cs",
-              "DocumentMoniker": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Models\\Movies\\Movie.cs",
-              "RelativeDocumentMoniker": "Models\\Movies\\Movie.cs",
-              "ToolTip": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Models\\Movies\\Movie.cs",
-              "RelativeToolTip": "Models\\Movies\\Movie.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAA1wCkAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T22:52:51.284Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "MainPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Views\\MainPage.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\MainPage.xaml.cs",
-              "ToolTip": "C:\\Users\\egyip\\Desktop\\BME\\Klitech\\H\u00E1zi\\ClientsideApplicationsHW\\WhatToWatch\\Views\\MainPage.xaml.cs",
-              "RelativeToolTip": "Views\\MainPage.xaml.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAAB0AAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T22:00:58.597Z"
             }
           ]
         }
