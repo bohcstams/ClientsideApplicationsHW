@@ -208,5 +208,20 @@ namespace WhatToWatch.Services
         {
             return await GetSeriesListWithPosterAsync($"search/tv?query={queryString}&include_adult=false&language=hu&page=1");
         }
+
+        public async Task<Series> GetSeriesDetailsAsync(int seriesId)
+        {
+            var series = await GetAsync<Series>($"tv/{seriesId}?language=hu");
+            foreach(Season season in series.seasons)
+            {
+                var seasonDetails = await GetAsync<Season>($"tv/{series.id}/season/{season.season_number}?language=hu");
+                season.episodes = new List<Episode>();
+                foreach(var episode in seasonDetails.episodes)
+                {
+                    season.episodes.Add(episode);
+                }
+            }
+            return series;
+        }
     }
 }

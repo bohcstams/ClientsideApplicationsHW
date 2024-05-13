@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using WhatToWatch.Models;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -29,7 +30,8 @@ namespace WhatToWatch.Views
 
         private void Series_Clicked_Navigate_To_Details(object sender, ItemClickEventArgs e)
         {
-          
+            var seriesHandler = (Series)e.ClickedItem;
+            ViewModel.NavigateToDetails(seriesHandler);
         }
 
         private void Back_To_Main_Page(object sender, RoutedEventArgs e)

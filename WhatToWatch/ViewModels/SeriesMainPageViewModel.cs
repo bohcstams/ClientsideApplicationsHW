@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Template10.Mvvm;
 using WhatToWatch.Models;
 using WhatToWatch.Services;
+using WhatToWatch.Views;
 using Windows.UI.Xaml.Navigation;
 
 namespace WhatToWatch.ViewModels
@@ -94,6 +95,11 @@ namespace WhatToWatch.ViewModels
                 Title = title,
                 Series = series.results
             });
+        }
+
+        public void NavigateToDetails(Series series)
+        {
+            NavigationService.Navigate(typeof(SeriesDeatilsPage), series);
         }
     }
 }

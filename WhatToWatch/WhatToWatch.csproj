@@ -128,6 +128,7 @@
     <Compile Include="Models\Movies\MovieList.cs" />
     <Compile Include="Models\Production_Company.cs" />
     <Compile Include="Models\Production_Country.cs" />
+    <Compile Include="Models\TVSeries\Season.cs" />
     <Compile Include="Models\TVSeries\Series.cs" />
     <Compile Include="Models\TVSeries\SeriesGroup.cs" />
     <Compile Include="Models\TVSeries\SeriesList.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="ViewModels\DetailsPageViewModel.cs" />
     <Compile Include="ViewModels\EntryScreenViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\SeriesDetailsPageViewModel.cs" />
     <Compile Include="ViewModels\SeriesMainPageViewModel.cs" />
     <Compile Include="Views\ActorDetailsPage.xaml.cs">
       <DependentUpon>ActorDetailsPage.xaml</DependentUpon>
@@ -151,6 +153,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\SeriesDeatilsPage.xaml.cs">
+      <DependentUpon>SeriesDeatilsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SeriesMainPage.xaml.cs">
       <DependentUpon>SeriesMainPage.xaml</DependentUpon>
     </Compile>
@@ -197,6 +202,10 @@
     <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SeriesDeatilsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SeriesMainPage.xaml">
       <SubType>Designer</SubType>

@@ -44,7 +44,7 @@
                 <controls:PageHeader Content="Milyen sorozatot szeretne nézni?" Grid.Row="0" Grid.ColumnSpan="2"/>
                 <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0 10 0 0 ">
                     <TextBlock Text="Sorozatok keresése:" Foreground="Black" FontSize="16" VerticalAlignment="Center" Margin=" 15 0 10 0"/>
-                    <TextBox x:Name="SearchBar" PlaceholderText="Adja meg egy film címét " Width="250" VerticalAlignment="Center" KeyUp="Series_Search"/>
+                    <TextBox x:Name="SearchBar" PlaceholderText="Adja meg egy sorozat nevét " Width="250" VerticalAlignment="Center" KeyUp="Series_Search"/>
                     <Button x:Name="GoBackButton" Click="Back_To_Main_Page" IsEnabled="False">
                         <TextBlock Text="Vissza" Foreground="Black"/>
                     </Button>
