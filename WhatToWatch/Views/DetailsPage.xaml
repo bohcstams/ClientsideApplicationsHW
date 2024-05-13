@@ -11,12 +11,12 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
-        <Style x:Key="BorderedPanel" TargetType="Border">
-            <Setter Property="Background" Value="#16FFFFFF" />
+        <Style x:Key="ParagraphBorder" TargetType="Border">
+            <Setter Property="Margin" Value="0 10 0 30" />
             <Setter Property="BorderBrush" Value="#32FFFFFF" />
             <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Background" Value="#16FFFFFF" />
             <Setter Property="Padding" Value="10" />
-            <Setter Property="Margin" Value="0 10 0 30" />
         </Style>
         <Style x:Key="FactLabel" TargetType="TextBlock">
             <Setter Property="FontSize" Value="18" />
@@ -76,20 +76,23 @@
 
                 <StackPanel Grid.Row="1" Margin="0 0 0 60" >
                     <TextBlock Text="Értékelés" FontWeight="Bold" FontSize="24" />
-                    <Border Style="{StaticResource BorderedPanel}">
+                    <Border Style="{StaticResource ParagraphBorder}">
                         <Grid>
-                            <Rectangle Width="100" Height="30" Stroke="Black" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            <Rectangle Width="{Binding Movie.VotePercent}" Height="30" Fill="Green" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            <TextBlock Text="{Binding Movie.VotePercent}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Fill="Black" Width="100" Height="20" Grid.Row="0" HorizontalAlignment="Left"/>
+                            <Rectangle Fill="Green" Width="{Binding Series.VotePercent}" Height="20" Grid.Row="0" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Series.VotePercent}" Foreground="White"/>
                         </Grid>
                     </Border>
                     <TextBlock Text="Áttekintés" FontWeight="Bold" FontSize="24" />
-                    <Border Style="{StaticResource BorderedPanel}">
+                    <Border Style="{StaticResource ParagraphBorder}">
                         <TextBlock Text="{Binding Movie.overview}" TextWrapping="Wrap" FontSize="18"/>
                     </Border>
 
                     <TextBlock Text="Kategóriák" FontWeight="Bold" FontSize="24" />
-                    <Border Style="{StaticResource BorderedPanel}">
+                    <Border Style="{StaticResource ParagraphBorder}">
                         <ItemsControl ItemsSource="{Binding Movie.genres}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -116,7 +119,7 @@
                     </Border>
 
                     <TextBlock Text="Szereplők" FontWeight="Bold" FontSize="24" />
-                    <Border Style="{StaticResource BorderedPanel}" Height="90">
+                    <Border Style="{StaticResource ParagraphBorder}" Height="90">
                         <ScrollViewer HorizontalScrollBarVisibility="Visible">
                             <ItemsControl ItemsSource="{Binding MovieCast.cast}">
                                 <ItemsControl.ItemsPanel>
@@ -149,7 +152,7 @@
                     </Border>
 
                     <TextBlock Text="Hasonló filmek" FontWeight="Bold" FontSize="24"/>
-                    <Border Style="{StaticResource BorderedPanel}">
+                    <Border Style="{StaticResource ParagraphBorder}">
                         <GridView ItemsSource="{Binding Source={StaticResource MoviesViewSource}}" IsItemClickEnabled="True" ItemClick="Movie_Clicked_Navigate_To_Details">
                             <GridView.ItemTemplate>
                                 <DataTemplate>
@@ -166,7 +169,7 @@
                     </Border>
 
                     <TextBlock Text="Információk" FontWeight="Bold" FontSize="24" />
-                    <Border Style="{StaticResource BorderedPanel}">
+                    <Border Style="{StaticResource ParagraphBorder}">
                         <StackPanel>
                             <TextBlock Text="Megjelenés dátuma" Style="{StaticResource FactLabel}" />
                             <TextBlock Text="{Binding Movie.release_date }"/>

@@ -20,6 +20,7 @@ namespace WhatToWatch.Models
         public string backdrop_path { get; set; }
         public int?[] genre_ids { get; set; }
         public int id { get; set; }
+        public string name { get; set; }
         public string original_language { get; set; }
         public string original_title { get; set; }
         public string overview { get; set; }

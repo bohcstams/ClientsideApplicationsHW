@@ -22,6 +22,14 @@ namespace WhatToWatch.Models
         public int season_number { get; set; }
         public float vote_average { get; set; }
         public BitmapImage poster { get; set; }
+
+        public string NameWithEpisodeCount
+        {
+            get
+            {
+                return $"{name} ({episodes.Count})";
+            }
+        }
     }
 
     public class Episode

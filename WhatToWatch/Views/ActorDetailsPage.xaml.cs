@@ -34,5 +34,12 @@ namespace WhatToWatch.Views
             var movieHandler = (CastMovie)button.DataContext;
             ViewModel.NavigateToDetails(movieHandler.id);
         }
+
+        private void Series_Clicked_Navigate_To_Details(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            var seriesHandler = (CastMovie)button.DataContext;
+            ViewModel.NavigateToSeriesDetails(seriesHandler.id);
+        }
     }
 }

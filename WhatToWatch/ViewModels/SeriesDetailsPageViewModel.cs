@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Template10.Mvvm;
 using WhatToWatch.Models;
 using WhatToWatch.Services;
+using WhatToWatch.Views;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
@@ -17,6 +18,8 @@ namespace WhatToWatch.ViewModels
     {
         private Series _series;
         private BitmapImage _poster;
+        private Credits _seriesCast;
+        private SeriesList _relatedSeries;
 
         public Series Series
         { 
@@ -30,6 +33,18 @@ namespace WhatToWatch.ViewModels
             set { Set(ref _poster, value);}
         }
 
+        public Credits SeriesCast
+        {
+            get { return _seriesCast; }
+            set { Set(ref _seriesCast, value); }
+        }
+
+        public SeriesList RelatedSeries
+        {
+            get { return _relatedSeries; }
+            set { Set(ref _relatedSeries, value); }
+        }
+
         public ObservableCollection<Season> Seasons { get; set; } =
             new ObservableCollection<Season>();
 
@@ -38,11 +53,13 @@ namespace WhatToWatch.ViewModels
         public override async Task OnNavigatedToAsync(
             object parameter, NavigationMode mode, IDictionary<string, object> state)
         { 
-            Series = (Series)parameter;
+            var seriesId = (int)parameter;
             try
-            {   
+            {
+                Series = await apiService.GetSeriesDetailsAsync(seriesId);
                 Poster = await apiService.GetPosterAsync(Series.poster_path);
-                Series = await apiService.GetSeriesDetailsAsync(Series.id);
+                SeriesCast = await apiService.GetSeriesCastAsync(seriesId);
+                RelatedSeries = await apiService.GetRecommendedSeriesAsync(seriesId);
                 foreach (Season season in Series.seasons)
                 {
                     Seasons.Add(season);
@@ -52,6 +69,16 @@ namespace WhatToWatch.ViewModels
                 Debug.WriteLine(ex.Message);
             }
             await base.OnNavigatedToAsync (parameter, mode, state);
+        }
+
+        public void NavigateToActorDetails(int actorId)
+        {
+            NavigationService.Navigate(typeof(ActorDetailsPage), actorId);
+        }
+
+        public void NavigateToSeriesDetails(int seriesId)
+        {
+            NavigationService.Navigate(typeof(SeriesDeatilsPage), seriesId);
         }
 
     }

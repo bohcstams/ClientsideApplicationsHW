@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace WhatToWatch.Models
 {
 
-    public class MovieCast
+    public class Credits
     {
         public int id { get; set; }
         public List<Cast> cast { get; set; }

@@ -111,7 +111,7 @@
                     <TextBlock Text="Sorozatok, amikben szerepelt" FontWeight="Bold" FontSize="24" />
                     <Border Style="{StaticResource BorderedPanel}" Height="80">
                         <ScrollViewer HorizontalScrollBarVisibility="Visible">
-                            <ItemsControl ItemsSource="{Binding SeriesCredits.Cast}">
+                            <ItemsControl ItemsSource="{Binding SeriesCredits.cast}">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <StackPanel Orientation="Horizontal"/>
@@ -120,9 +120,9 @@
 
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <Button VerticalAlignment="Top">
+                                        <Button Click="Series_Clicked_Navigate_To_Details" VerticalAlignment="Top">
                                             <StackPanel Margin="5">
-                                                <TextBlock Text="{Binding Name}" 
+                                                <TextBlock Text="{Binding name}" 
                                                        FontSize="14" 
                                                        HorizontalAlignment="Center" 
                                                        VerticalAlignment="Center" 

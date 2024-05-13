@@ -99,7 +99,7 @@ namespace WhatToWatch.ViewModels
 
         public void NavigateToDetails(Series series)
         {
-            NavigationService.Navigate(typeof(SeriesDeatilsPage), series);
+            NavigationService.Navigate(typeof(SeriesDeatilsPage), series.id);
         }
     }
 }

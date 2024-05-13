@@ -159,9 +159,9 @@ namespace WhatToWatch.Services
             return await GetAsync<Movie>($"movie/{id}?language=hu");
         }
 
-        public async Task<MovieCast> GetMovieCastAsync(int id)
+        public async Task<Credits> GetMovieCastAsync(int id)
         {
-            return await GetAsync<MovieCast>($"movie/{id}/credits?language=hu");
+            return await GetAsync<Credits>($"movie/{id}/credits?language=hu");
         }
 
         public async Task<Actor> GetActorDetailsAsync(int id)
@@ -222,6 +222,21 @@ namespace WhatToWatch.Services
                 }
             }
             return series;
+        }
+
+        public async Task<Credits> GetSeriesCastAsync(int seriesId)
+        {
+            return await GetAsync<Credits>($"tv/{seriesId}/credits?language=hu");
+        }
+
+        public async Task<SeriesList> GetRecommendedSeriesAsync(int seriesId)
+        {
+            return await GetSeriesListWithPosterAsync($"tv/{seriesId}/recommendations?language=hu&page=1");
+        }
+
+        public async Task<ActorCast> GetActorSeriesCreditsAsync(int actorId)
+        {
+            return await GetAsync<ActorCast>($"person/{actorId}/tv_credits?language=hu");
         }
     }
 }

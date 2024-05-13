@@ -32,5 +32,18 @@ namespace WhatToWatch.Views
         {
             
         }
+
+        private void Actor_Clicked_Navigate_To_Details(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            var actorHandler = (Cast)button.DataContext;
+            ViewModel.NavigateToActorDetails(actorHandler.id);
+        }
+
+        private void Series_Clicked_Navigate_To_Details(object sender, ItemClickEventArgs e)
+        {
+            var seriesHandler = (Series)e.ClickedItem;
+            ViewModel.NavigateToSeriesDetails(seriesHandler.id);
+        }
     }
 }

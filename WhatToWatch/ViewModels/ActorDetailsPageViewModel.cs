@@ -17,6 +17,7 @@ namespace WhatToWatch.ViewModels
         private Actor _actor;
         private BitmapImage _profilepicture;
         private ActorCast _credits;
+        private ActorCast _seriesCredits;
 
         public Actor Actor
         {
@@ -36,6 +37,12 @@ namespace WhatToWatch.ViewModels
             set { Set(ref _credits, value); }
         }
 
+        public ActorCast SeriesCredits
+        {
+            get { return _seriesCredits; }
+            set { Set(ref _seriesCredits, value); }
+        }
+
         private ApiService apiService = new ApiService("Assets/apiKey.txt");
 
         public override async Task OnNavigatedToAsync(
@@ -47,7 +54,7 @@ namespace WhatToWatch.ViewModels
                 Actor = await apiService.GetActorDetailsAsync(actorId);
                 ProfilePicture = await apiService.GetPosterAsync(Actor.profile_path);
                 Credits = await apiService.GetActorCastAsync(actorId);
-
+                SeriesCredits = await apiService.GetActorSeriesCreditsAsync(actorId);
             }catch(Exception ex) { 
             }
 
@@ -57,6 +64,11 @@ namespace WhatToWatch.ViewModels
         public void NavigateToDetails(int movieId)
         {
             NavigationService.Navigate(typeof(DetailsPage), movieId);
+        }
+
+        public void NavigateToSeriesDetails(int seriesId)
+        {
+            NavigationService.Navigate(typeof(SeriesDeatilsPage), seriesId);
         }
     }
 }

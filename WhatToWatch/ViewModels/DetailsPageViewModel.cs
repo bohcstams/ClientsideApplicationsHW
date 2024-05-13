@@ -20,7 +20,7 @@ namespace WhatToWatch.ViewModels
     {
 
         private Movie _movie;
-        private MovieCast _moviecast;
+        private Credits _moviecast;
         private BitmapImage _poster;
         private MovieList _relatedMovies;
 
@@ -37,7 +37,7 @@ namespace WhatToWatch.ViewModels
             set { Set(ref _poster, value); }
         }
 
-        public MovieCast MovieCast {
+        public Credits MovieCast {
             get { return _moviecast; }
             set
             { Set(ref _moviecast, value); }

@@ -8,39 +8,178 @@
     xmlns:vm="using:WhatToWatch.ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <CollectionViewSource x:Key="SeriesViewSource"
+          Source="{Binding RelatedSeries.results}"
+          ItemsPath="Series"/>
+        <Style x:Key="TitleString" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="38"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Margin" Value="0 20 0 20"/>
+        </Style>
+        <Style x:Key="Sub-TitleString" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Margin" Value="0 10 0 5"/>
+        </Style>
+        <Style x:Key="SeasonTitle" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="0 10 0 0"/>
+        </Style>
+        <Style x:Key="ParagraphBorder" TargetType="Border">
+            <Setter Property="Margin" Value="0 10 0 30" />
+            <Setter Property="BorderBrush" Value="#32FFFFFF" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Background" Value="#16FFFFFF" />
+            <Setter Property="Padding" Value="10" />
+        </Style>
+    </Page.Resources>
     <Page.DataContext>
         <vm:SeriesDetailsPageViewModel x:Name="ViewModel"/>
     </Page.DataContext>
-    <Grid>
+    <Grid Background="DarkGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Vertical" Grid.Column="0">
-            <Image Source="{Binding Poster}" Stretch="Uniform" MaxHeight="400"/>
-            <TextBlock Text="Évadok:"/>
-            <GridView ItemsSource="{Binding Series.seasons}" IsItemClickEnabled="True" ItemClick="ClickedOnSeason">
-                <GridView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Margin="10 0 10 0">
-                            <TextBlock Text="{Binding name}" Margin="12" Foreground="Black"/>
-                            <ItemsControl ItemsSource="{Binding episodes}" >
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <StackPanel Orientation="Horizontal"/>
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding name}" Foreground="Black"/>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </Grid>
-                    </DataTemplate>
-                </GridView.ItemTemplate>
-            </GridView>
-        </StackPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" Grid.Column="0" Margin="20">
+            <StackPanel Orientation="Vertical">
+                <Image Source="{Binding Poster}" Stretch="Uniform" MaxWidth="400"/>
+                <TextBlock Text="Évadok:" Style="{StaticResource Sub-TitleString}"/>
+                <ItemsControl ItemsSource="{Binding Series.seasons}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding NameWithEpisodeCount}" Style="{StaticResource SeasonTitle}"/>
+                                <ScrollViewer HorizontalScrollBarVisibility="Visible">
+                                    <ItemsControl ItemsSource="{Binding episodes}" >
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Horizontal"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border BorderBrush="#32FFFFFF" 
+                                                    BorderThickness="1" 
+                                                    CornerRadius="2" 
+                                                    Background="#16000000" 
+                                                    Margin="5">
+                                                    <TextBlock Text="{Binding name}" 
+                                                       FontSize="14" 
+                                                       Padding="5" 
+                                                       HorizontalAlignment="Center" 
+                                                       VerticalAlignment="Center"/>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+
+        <ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Column="1">
+            <StackPanel Orientation="Vertical">
+            <TextBlock Text="{Binding Series.name}" Style="{StaticResource TitleString}"/>
+                <TextBlock Text="Értékelés" Style="{StaticResource Sub-TitleString}"/>
+                <Border Style="{StaticResource ParagraphBorder}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Rectangle Fill="Black" Width="100" Height="20" Grid.Row="0" HorizontalAlignment="Left"/>
+                        <Rectangle Fill="Green" Width="{Binding Series.VotePercent}" Height="20" Grid.Row="0" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding Series.VotePercent}" Foreground="White"/>
+                    </Grid>
+                </Border>
+                <TextBlock Text="Áttekintés" Style="{StaticResource Sub-TitleString}"/>
+                <Border Style="{StaticResource ParagraphBorder}">
+                    <TextBlock Text="{Binding Series.overview}" TextWrapping="Wrap" FontSize="18"/>
+                </Border>
+                <TextBlock Text="Kategóriák" Style="{StaticResource Sub-TitleString}"/>
+                <Border Style="{StaticResource ParagraphBorder}">
+                    <ItemsControl ItemsSource="{Binding Series.genres}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="#32FFFFFF" 
+                                    BorderThickness="1" 
+                                    CornerRadius="2" 
+                                    Background="#16000000" 
+                                    Margin="5">
+                                    <TextBlock Text="{Binding name}" 
+                                       FontSize="14" 
+                                       Padding="5" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"/>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+                <TextBlock Text="Szereplők" Style="{StaticResource Sub-TitleString}"/>
+                <Border Style="{StaticResource ParagraphBorder}">
+                    <ScrollViewer HorizontalScrollBarVisibility="Visible">
+                        <ItemsControl ItemsSource="{Binding SeriesCast.cast}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button VerticalAlignment="Top" Padding="5" Click="Actor_Clicked_Navigate_To_Details" >
+                                        <StackPanel Margin="5">
+                                            <TextBlock Text="{Binding name}" 
+                           FontSize="14" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           TextAlignment="Center" />
+
+                                            <TextBlock Text="{Binding character}" 
+                           FontSize="12" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           TextAlignment="Center" />
+                                        </StackPanel>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Border>
+                <TextBlock Text="Hasonló sorozatok" Style="{StaticResource Sub-TitleString}"/>
+                <GridView ItemsSource="{Binding Source={StaticResource SeriesViewSource}}" IsItemClickEnabled="True" ItemClick="Series_Clicked_Navigate_To_Details">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="150" Height="225" Margin="10 0 10 0">
+                                <Image Source="{Binding poster}"
+                                    Stretch="UniformToFill" VerticalAlignment="Center" />
+                                <Border VerticalAlignment="Bottom" Background="#AA000000">
+                                    <TextBlock Text="{Binding name}" Margin="12" Foreground="White"/>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
