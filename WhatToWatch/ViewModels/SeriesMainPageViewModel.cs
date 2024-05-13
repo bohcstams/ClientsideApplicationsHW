@@ -50,12 +50,20 @@ namespace WhatToWatch.ViewModels
             if (!string.IsNullOrEmpty(searchString))
             {
                 var searchResult = await apiService.GetSeriesSearchResultAsync(searchString);
-                foreach(var group in SeriesGroups)
+                if(SeriesGroupsCache.Count != 0)
                 {
-                    SeriesGroupsCache.Add(group);
+                    SeriesGroups.Clear();
+                    AddSeriesListToGroups("Eredmények", searchResult);
                 }
-                SeriesGroups.Clear();
-                AddSeriesListToGroups("Eredmények", searchResult);
+                else
+                {
+                    foreach (var group in SeriesGroups)
+                    {
+                        SeriesGroupsCache.Add(group);
+                    }
+                    SeriesGroups.Clear();
+                    AddSeriesListToGroups("Eredmények", searchResult);
+                }
             }
         }
 

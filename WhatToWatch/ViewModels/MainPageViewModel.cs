@@ -92,12 +92,20 @@ namespace WhatToWatch.ViewModels
             if (!string.IsNullOrEmpty(searchString))
             {
                 var searchResult = await apiService.GetMovieSearchResultAsync(searchString);
-                foreach (var group in MovieGroups)
+                if(MovieGroupsCache.Count != 0)
                 {
-                    MovieGroupsCache.Add(group);
+                    MovieGroups.Clear();
+                    AddMovieListToGroups("Eredmények", searchResult);
                 }
-                MovieGroups.Clear();
-                AddMovieListToGroups("Eredmények", searchResult);
+                else
+                {
+                    foreach (var group in MovieGroups)
+                    {
+                        MovieGroupsCache.Add(group);
+                    }
+                    MovieGroups.Clear();
+                    AddMovieListToGroups("Eredmények", searchResult);
+                }
             }
         }
 
