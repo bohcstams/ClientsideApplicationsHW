@@ -70,24 +70,29 @@ namespace WhatToWatch.ViewModels
         /// <param name="searchString">A keresett sorozat címe</param>
         public async void SeriesSearch(string searchString)
         {
-            if (!string.IsNullOrEmpty(searchString))
+            var checker = new ConnectionService();
+            if (checker.IsConnected())
             {
-                var searchResult = await apiService.GetSeriesSearchResultAsync(searchString);
-                if(SeriesGroupsCache.Count != 0)
+                if (!string.IsNullOrEmpty(searchString))
                 {
-                    SeriesGroups.Clear();
-                    AddSeriesListToGroups("Eredmények", searchResult);
-                }
-                else
-                {
-                    foreach (var group in SeriesGroups)
+                    var searchResult = await apiService.GetSeriesSearchResultAsync(searchString);
+                    if (SeriesGroupsCache.Count != 0)
                     {
-                        SeriesGroupsCache.Add(group);
+                        SeriesGroups.Clear();
+                        AddSeriesListToGroups("Eredmények", searchResult);
                     }
-                    SeriesGroups.Clear();
-                    AddSeriesListToGroups("Eredmények", searchResult);
+                    else
+                    {
+                        foreach (var group in SeriesGroups)
+                        {
+                            SeriesGroupsCache.Add(group);
+                        }
+                        SeriesGroups.Clear();
+                        AddSeriesListToGroups("Eredmények", searchResult);
+                    }
                 }
             }
+            
         }
 
         /// <summary>

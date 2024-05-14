@@ -132,24 +132,29 @@ namespace WhatToWatch.ViewModels
         /// <param name="searchString">A keresett film címe</param>
         public async void MovieSearch(string searchString)
         {
-            if (!string.IsNullOrEmpty(searchString))
+            var checker = new ConnectionService();
+            if (checker.IsConnected())
             {
-                var searchResult = await apiService.GetMovieSearchResultAsync(searchString);
-                if(MovieGroupsCache.Count != 0)
+                if (!string.IsNullOrEmpty(searchString))
                 {
-                    MovieGroups.Clear();
-                    AddMovieListToGroups("Eredmények", searchResult);
-                }
-                else
-                {
-                    foreach (var group in MovieGroups)
+                    var searchResult = await apiService.GetMovieSearchResultAsync(searchString);
+                    if (MovieGroupsCache.Count != 0)
                     {
-                        MovieGroupsCache.Add(group);
+                        MovieGroups.Clear();
+                        AddMovieListToGroups("Eredmények", searchResult);
                     }
-                    MovieGroups.Clear();
-                    AddMovieListToGroups("Eredmények", searchResult);
+                    else
+                    {
+                        foreach (var group in MovieGroups)
+                        {
+                            MovieGroupsCache.Add(group);
+                        }
+                        MovieGroups.Clear();
+                        AddMovieListToGroups("Eredmények", searchResult);
+                    }
                 }
             }
+            
         }
 
         /// <summary>
